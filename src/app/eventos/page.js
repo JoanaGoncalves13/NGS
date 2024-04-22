@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Head from "next/head";
-import styles from "./page.module.css";
+import styles from "../page.module.css";
 
 export default function Home() {
   return (
@@ -41,48 +41,107 @@ export default function Home() {
       </header>
 
       <main className={styles.main}>
-        <div className={styles.imageInicial}>
-          <img src={"/imagemPortugal.jpg"} alt="logo" />
-          <div className={styles.quadradoInicial}>
-            <div className={styles.quadradoInicial_imagem}>
-              <img
-                src={"./logoNGS.png"}
-                alt="logoPequeno"
-                style={{ width: "900px", height: "auto" }}
-              />
-            </div>
-            <div className={styles.quadradoInicial_texto}>
-              <p>Portugal</p>
-              <p>Espanha</p>
-              <p>Suiça</p>
-              <p>Brasil</p>
+        <div className={styles.imageInicial2}>
+          <div className={styles.quadrado}>
+            <div className={styles.quadrado_texto}>
+              <h1>Eventos</h1>
             </div>
           </div>
         </div>
 
-        <div className={styles.informacoes}>
-          <div className={styles.info1}>
-            <div className={styles.quadradotransparente_info}>
-              <h1>Conheça-nos</h1>
-              <p>Somos o seu parceiro confiável.</p>
-              <button className={styles.button1}>Ver mais</button>
+        <div className={styles.quadradoinfo}>
+          <div className={styles.quadradoImagem}>
+            <img
+              src={"./covid.png"}
+              alt="logoPequeno"
+              style={{ width: "220px", height: "auto" }}
+            />
+          </div>
+          <div className={styles.quadradotexto}>
+            <div className={styles.post}>
+              <div className={styles.postinfo}>
+                <h1>Evento</h1>
+                <p>Publicado a dd/mm/aaaa</p>
+              </div>
+              <button className={styles.buttonRed}>Ver mais</button>
             </div>
-            <div className={styles.quadradovermelho_info}>
-              <h1>O que fazemos</h1>
-              <p>Descubra como o podemos ajudar.</p>
-              <button className={styles.button2}>Ver mais</button>{" "}
+            <div className={styles.conteudo}>
+              <p>
+                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
+                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
+              </p>
             </div>
           </div>
-          <div className={styles.info1}>
-            <div className={styles.quadradovermelho_info}>
-              <h1>Mantenha-se a par</h1>
-              <p>Consulte o nosso blog para atualizações.</p>
-              <button className={styles.button2}>Blog</button>{" "}
+        </div>
+        <div className={styles.quadradoinfoVermelho}>
+          <div className={styles.quadradoImagem}>
+            <img
+              src={"./covid.png"}
+              alt="logoPequeno"
+              style={{ width: "220px", height: "auto" }}
+            />
+          </div>
+          <div className={styles.quadradotexto}>
+            <div className={styles.post}>
+              <div className={styles.postinfo}>
+                <h1>Evento</h1>
+                <p>Publicado a dd/mm/aaaa</p>
+              </div>
+              <button className={styles.buttonRed2}>Ver mais</button>
             </div>
-            <div className={styles.quadradotransparente_info}>
-              <h1>Eventos</h1>
-              <p>Participe nos nossos eventos.</p>
-              <button className={styles.button1}>Ver mais</button>{" "}
+            <div className={styles.conteudo}>
+              <p>
+                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
+                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className={styles.quadradoinfo}>
+          <div className={styles.quadradoImagem}>
+            <img
+              src={"./covid.png"}
+              alt="logoPequeno"
+              style={{ width: "220px", height: "auto" }}
+            />
+          </div>
+          <div className={styles.quadradotexto}>
+            <div className={styles.post}>
+              <div className={styles.postinfo}>
+                <h1>Evento</h1>
+                <p>Publicado a dd/mm/aaaa</p>
+              </div>
+              <button className={styles.buttonRed}>Ver mais</button>
+            </div>
+            <div className={styles.conteudo}>
+              <p>
+                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
+                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className={styles.quadradoinfoVermelho}>
+          <div className={styles.quadradoImagem}>
+            <img
+              src={"./covid.png"}
+              alt="logoPequeno"
+              style={{ width: "220px", height: "auto" }}
+            />
+          </div>
+          <div className={styles.quadradotexto}>
+            <div className={styles.post}>
+              <div className={styles.postinfo}>
+                <h1>Evento</h1>
+                <p>Publicado a dd/mm/aaaa</p>
+              </div>
+              <button className={styles.buttonRed2}>Ver mais</button>
+            </div>
+            <div className={styles.conteudo}>
+              <p>
+                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
+                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
+              </p>
             </div>
           </div>
         </div>

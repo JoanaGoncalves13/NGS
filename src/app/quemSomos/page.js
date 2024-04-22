@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Head from "next/head";
-import styles from "./page.module.css";
+import styles from "../page.module.css";
 
 export default function Home() {
   return (
@@ -41,50 +41,50 @@ export default function Home() {
       </header>
 
       <main className={styles.main}>
-        <div className={styles.imageInicial}>
-          <img src={"/imagemPortugal.jpg"} alt="logo" />
-          <div className={styles.quadradoInicial}>
-            <div className={styles.quadradoInicial_imagem}>
-              <img
-                src={"./logoNGS.png"}
-                alt="logoPequeno"
-                style={{ width: "900px", height: "auto" }}
-              />
-            </div>
-            <div className={styles.quadradoInicial_texto}>
-              <p>Portugal</p>
-              <p>Espanha</p>
-              <p>Suiça</p>
-              <p>Brasil</p>
+        <div className={styles.imageInicial2}>
+          <div className={styles.quadrado}>
+            <div className={styles.quadrado_texto}>
+              <h1>A Sociedade</h1>
             </div>
           </div>
         </div>
 
-        <div className={styles.informacoes}>
-          <div className={styles.info1}>
-            <div className={styles.quadradotransparente_info}>
-              <h1>Conheça-nos</h1>
-              <p>Somos o seu parceiro confiável.</p>
-              <button className={styles.button1}>Ver mais</button>
-            </div>
-            <div className={styles.quadradovermelho_info}>
-              <h1>O que fazemos</h1>
-              <p>Descubra como o podemos ajudar.</p>
-              <button className={styles.button2}>Ver mais</button>{" "}
-            </div>
+        <div className={styles.sociedade}>
+          <div className={styles.sociedade_imagem}></div>
+          <div className={styles.sociedade_texto}>
+            <p>
+              Somos uma sociedade de advogados em que a juventude se entrelaça
+              com a maturidade. Podemos, assim, aliar a energia com que
+              abraçamos os assuntos que nos são confiados, à sensatez e
+              ponderação com que os tratamos.
+            </p>
+            <p>
+              Distinguimo-nos por, em cada momento, sabermos dar ao cliente
+              aquilo que ele precisa. Pode, por isso, dizer-se que praticamos
+              uma advocacia feita à medida do cliente.
+            </p>
+            <button>Contacte-nos</button>
           </div>
-          <div className={styles.info1}>
-            <div className={styles.quadradovermelho_info}>
-              <h1>Mantenha-se a par</h1>
-              <p>Consulte o nosso blog para atualizações.</p>
-              <button className={styles.button2}>Blog</button>{" "}
-            </div>
-            <div className={styles.quadradotransparente_info}>
-              <h1>Eventos</h1>
-              <p>Participe nos nossos eventos.</p>
-              <button className={styles.button1}>Ver mais</button>{" "}
-            </div>
+        </div>
+
+        <div className={styles.sociedade}>
+          <div className={styles.sociedade_texto}>
+            <p>
+              Abordamos os assuntos que nos são confiados, com dedicação e
+              empenho, com o profundo conhecimento da matéria que temos sobre as
+              várias áreas do Direito.
+            </p>
+            <p>
+              Aceitamos patrocinar assuntos da mais variada natureza, em todas
+              as áreas do Direito. Procuramos dar satisfação integral aos
+              interesses que nos são confiados, com elevados padrões éticos, de
+              qualidade e eficiência.
+              <br />
+              Esperamos poder ser-lhe útil.
+            </p>
+            <button>Contacte-nos</button>
           </div>
+          <div className={styles.sociedade_imagem}></div>
         </div>
 
         <div className={styles.contactos}>
