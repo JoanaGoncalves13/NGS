@@ -48,7 +48,7 @@ export default function Home() {
               <img
                 src={"./logoNGS.png"}
                 alt="logoPequeno"
-                style={{ width: "900px", height: "auto" }}
+                style={{ minWidth: "100%", height: "auto" }}
               />
             </div>
             <div className={styles.quadradoInicial_texto}>
