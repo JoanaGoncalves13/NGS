@@ -1,44 +1,12 @@
 import Image from "next/image";
 import Head from "next/head";
 import styles from "../page.module.css";
+import Navbar from "../components/Navbar";
 
 export default function Home() {
   return (
     <div>
-      <Head>
-        <title>NGS | Leão e Associados</title>
-        <meta
-          name="description"
-          content="NGS Leão e Associados, Sociedade de Advogados, SP, RL."
-        />
-      </Head>
-
-      <header className={styles.header}>
-        <div className={styles.headerImagem}>
-          <img
-            src={"./logoNGSpequeno.png"}
-            alt="logoPequeno"
-            style={{ width: "100px", height: "auto" }}
-          />
-        </div>
-        <div className={styles.headerTexto}>
-          <a href="quemSomos">
-            <p>Quem somos</p>
-          </a>
-          <a href="oQueFazemos">
-            <p>O que fazemos</p>
-          </a>
-          <a href="publicacoes">
-            <p>Publicações</p>
-          </a>
-          <a href="eventos">
-            <p>Eventos</p>
-          </a>
-          <a href="contactos">
-            <p>Contactos</p>
-          </a>
-        </div>
-      </header>
+      <Navbar />
 
       <main className={styles.main}>
         <div className={styles.imageInicial2}>
