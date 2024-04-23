@@ -1,9 +1,14 @@
-import Image from "next/image";
-import Head from "next/head";
+"use client";
+
+import React, { useState } from "react";
 import styles from "../page.module.css";
 import Navbar from "../components/Navbar";
+import BlogPosts from "./components/blog-posts";
 
 export default function Home() {
+  const [posts, setPosts] = useState([]);
+  const [addingPost, setAddingPost] = useState(false);
+  const search = "";
   return (
     <div>
       <Navbar />
@@ -17,102 +22,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className={styles.quadradoinfo}>
-          <div className={styles.quadradoImagem}>
-            <img
-              src={"./covid.png"}
-              alt="logoPequeno"
-              style={{ width: "220px", height: "auto" }}
-            />
-          </div>
-          <div className={styles.quadradotexto}>
-            <div className={styles.post}>
-              <div className={styles.postinfo}>
-                <h1>Evento</h1>
-                <p>Publicado a dd/mm/aaaa</p>
-              </div>
-              <button className={styles.buttonRed}>Ver mais</button>
-            </div>
-            <div className={styles.conteudo}>
-              <p>
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className={styles.quadradoinfoVermelho}>
-          <div className={styles.quadradoImagem}>
-            <img
-              src={"./covid.png"}
-              alt="logoPequeno"
-              style={{ width: "220px", height: "auto" }}
-            />
-          </div>
-          <div className={styles.quadradotexto}>
-            <div className={styles.post}>
-              <div className={styles.postinfo}>
-                <h1>Evento</h1>
-                <p>Publicado a dd/mm/aaaa</p>
-              </div>
-              <button className={styles.buttonRed2}>Ver mais</button>
-            </div>
-            <div className={styles.conteudo}>
-              <p>
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className={styles.quadradoinfo}>
-          <div className={styles.quadradoImagem}>
-            <img
-              src={"./covid.png"}
-              alt="logoPequeno"
-              style={{ width: "220px", height: "auto" }}
-            />
-          </div>
-          <div className={styles.quadradotexto}>
-            <div className={styles.post}>
-              <div className={styles.postinfo}>
-                <h1>Evento</h1>
-                <p>Publicado a dd/mm/aaaa</p>
-              </div>
-              <button className={styles.buttonRed}>Ver mais</button>
-            </div>
-            <div className={styles.conteudo}>
-              <p>
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className={styles.quadradoinfoVermelho}>
-          <div className={styles.quadradoImagem}>
-            <img
-              src={"./covid.png"}
-              alt="logoPequeno"
-              style={{ width: "220px", height: "auto" }}
-            />
-          </div>
-          <div className={styles.quadradotexto}>
-            <div className={styles.post}>
-              <div className={styles.postinfo}>
-                <h1>Evento</h1>
-                <p>Publicado a dd/mm/aaaa</p>
-              </div>
-              <button className={styles.buttonRed2}>Ver mais</button>
-            </div>
-            <div className={styles.conteudo}>
-              <p>
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-              </p>
-            </div>
-          </div>
-        </div>
+        <BlogPosts {...{ posts, setPosts, addingPost, search }} />
 
         <div className={styles.contactos}>
           <div className={styles.mapa}></div>

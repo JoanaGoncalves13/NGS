@@ -1,178 +1,21 @@
-import Image from "next/image";
-import Head from "next/head";
+"use client";
+
+import React, { useState } from "react";
 import styles from "../page.module.css";
 import Navbar from "../components/Navbar";
 
+import BlogPosts from "./components/blog-posts";
+
 export default function Home() {
+  const [posts, setPosts] = useState([]);
+  const [addingPost, setAddingPost] = useState(false);
+  const search = "";
   return (
     <div>
       <Navbar />
 
       <main className={styles.main}>
-        <div className={styles.publicacoes}>
-          <h1>Publicações</h1>
-          <div className={styles.subscricoes}>
-            <div className={styles.subscricoes_subs}>
-              <div className={styles.subscricoes_texto}>
-                <h1>Subscreva a nossa Newsletter</h1>
-                <p>
-                  E fique a par das nossas publicações acerca das suas áreas de
-                  interesse.
-                </p>
-              </div>
-              <div className={styles.subscricoes_info}>
-                <form>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    placeholder="Nome "
-                  />
-
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    required
-                    placeholder="Telefone"
-                  />
-
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    placeholder="Email "
-                  />
-                </form>
-              </div>
-            </div>
-            <div className={styles.subscricoes_areas}>
-              <h1>Áreas interesses</h1>
-              <form>
-                <label>
-                  <input type="checkbox" name="civilLaw" />
-                  Direito Civil
-                </label>
-                <br />
-                <label>
-                  <input type="checkbox" name="criminalLaw" />
-                  Direito Criminal
-                </label>
-                <br />
-                <label>
-                  <input type="checkbox" name="taxLaw" />
-                  Direito Fiscal
-                </label>
-                <br />
-                <label>
-                  <input type="checkbox" name="commercialLaw" />
-                  Direito Comercial
-                </label>
-                <br />
-                <button type="submit">Submeter</button>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.quadradoinfo}>
-          <div className={styles.quadradoImagem}>
-            <img
-              src={"./covid.png"}
-              alt="logoPequeno"
-              style={{ width: "220px", height: "auto" }}
-            />
-          </div>
-          <div className={styles.quadradotexto}>
-            <div className={styles.post}>
-              <div className={styles.postinfo}>
-                <h1>Post</h1>
-                <p>Publicado a dd/mm/aaaa</p>
-              </div>
-              <button className={styles.buttonRed}>Ver mais</button>
-            </div>
-            <div className={styles.conteudo}>
-              <p>
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className={styles.quadradoinfoVermelho}>
-          <div className={styles.quadradoImagem}>
-            <img
-              src={"./covid.png"}
-              alt="logoPequeno"
-              style={{ width: "220px", height: "auto" }}
-            />
-          </div>
-          <div className={styles.quadradotexto}>
-            <div className={styles.post}>
-              <div className={styles.postinfo}>
-                <h1>Post</h1>
-                <p>Publicado a dd/mm/aaaa</p>
-              </div>
-              <button className={styles.buttonRed2}>Ver mais</button>
-            </div>
-            <div className={styles.conteudo}>
-              <p>
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className={styles.quadradoinfo}>
-          <div className={styles.quadradoImagem}>
-            <img
-              src={"./covid.png"}
-              alt="logoPequeno"
-              style={{ width: "220px", height: "auto" }}
-            />
-          </div>
-          <div className={styles.quadradotexto}>
-            <div className={styles.post}>
-              <div className={styles.postinfo}>
-                <h1>Post</h1>
-                <p>Publicado a dd/mm/aaaa</p>
-              </div>
-              <button className={styles.buttonRed}>Ver mais</button>
-            </div>
-            <div className={styles.conteudo}>
-              <p>
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className={styles.quadradoinfoVermelho}>
-          <div className={styles.quadradoImagem}>
-            <img
-              src={"./covid.png"}
-              alt="logoPequeno"
-              style={{ width: "220px", height: "auto" }}
-            />
-          </div>
-          <div className={styles.quadradotexto}>
-            <div className={styles.post}>
-              <div className={styles.postinfo}>
-                <h1>Post</h1>
-                <p>Publicado a dd/mm/aaaa</p>
-              </div>
-              <button className={styles.buttonRed2}>Ver mais</button>
-            </div>
-            <div className={styles.conteudo}>
-              <p>
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-              </p>
-            </div>
-          </div>
-        </div>
+        <BlogPosts {...{ posts, setPosts, addingPost, search }} />
       </main>
 
       <footer className={styles.footer}>
