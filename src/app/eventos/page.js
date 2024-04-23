@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import styles from "../page.module.css";
 import Navbar from "../components/Navbar";
 import BlogPosts from "./components/blog-posts";
+import ContactForm from "../components/contact.form";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -24,64 +25,7 @@ export default function Home() {
 
         <BlogPosts {...{ posts, setPosts, addingPost, search }} />
 
-        <div className={styles.contactos}>
-          <div className={styles.mapa}></div>
-          <div className={styles.contactos_texto}>
-            <h1>Contacte-nos</h1>
-            <form>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                placeholder="Nome "
-              />
-
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                required
-                placeholder="Telefone"
-              />
-
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                placeholder="Email "
-              />
-
-              <textarea
-                id="message"
-                name="message"
-                required
-                placeholder="Descreva-nos o seu problema"
-              ></textarea>
-
-              <h2>Áreas de interesse</h2>
-
-              <label label for="civil">
-                <input type="checkbox" name="interest" value="civil" /> Direito
-                Civil
-              </label>
-              <label>
-                <input type="checkbox" name="interest" value="criminal" />{" "}
-                Direito Criminal
-              </label>
-              <label>
-                <input type="checkbox" name="interest" value="tax" /> Direito
-                Fiscal
-              </label>
-              <label>
-                <input type="checkbox" name="interest" value="commercial" />{" "}
-                Direito Comercial
-              </label>
-              <button>Submeter</button>
-            </form>
-          </div>
-        </div>
+        <ContactForm />
       </main>
 
       <footer className={styles.footer}>

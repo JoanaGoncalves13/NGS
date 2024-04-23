@@ -8,7 +8,7 @@ const AdminPage = () => {
   return (
     <div style={{ backgroundColor: "black" }}>
       <h1>Página Admin</h1>
-      <button onClick={() => router.push("/admin/contactos")}>Contactos</button>
+
       <button onClick={() => router.push("/admin/newsletter")}>
         Newsletter
       </button>

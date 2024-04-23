@@ -41,7 +41,6 @@ const BlogPosts = ({ posts, setPosts, addingPost, search }) => {
   }, [search, posts]);
 
   const truncateBody = (body) => {
-    console.log(body.trim());
     if (body.trim().length > 300) {
       return body.trim().slice(0, 200) + "...";
     }

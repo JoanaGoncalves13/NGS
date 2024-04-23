@@ -1,6 +1,11 @@
 import React, { useState, useMemo } from "react";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  serverTimestamp,
+  getDocs,
+} from "firebase/firestore";
 import { db, storage } from "../../../../../firebase";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
@@ -53,26 +58,22 @@ const AddPost = ({ addingPost, setAddingPost }) => {
   };
 
   const handlePost = async () => {
-    // Reset error messages
     setHeadlineError("");
     setCoverPhotoError("");
     setEditorHtmlError("");
 
     let isValid = true;
 
-    // Validate headline
     if (!headline) {
       setHeadlineError("Por favor, preencha o título.");
       isValid = false;
     }
 
-    // Validate cover photo
     if (!coverPhoto) {
       setCoverPhotoError("Por favor, selecione uma imagem de capa.");
       isValid = false;
     }
 
-    // Validate editor HTML
     if (!editorHtml.trim()) {
       setEditorHtmlError("Por favor, escreva o corpo do post.");
       isValid = false;
@@ -82,23 +83,50 @@ const AddPost = ({ addingPost, setAddingPost }) => {
       return;
     }
 
-    // Upload cover photo to Firebase Storage
     const storageRef = ref(storage, `cover_photos/${coverPhoto.name}`);
     await uploadBytes(storageRef, coverPhoto);
     const coverPhotoUrl = await getDownloadURL(storageRef);
 
-    // Add post data to Firestore
     const postData = {
       headline: headline,
       coverPhoto: coverPhotoUrl,
       body: editorHtml,
       timestamp: serverTimestamp(),
     };
+
     await addDoc(collection(db, "posts"), postData);
 
-    // Update list of posts
     setAddingPost(false);
+
+    try {
+      const subscricoesSnapshot = await getDocs(collection(db, "subscricoes"));
+      subscricoesSnapshot.forEach((doc) => {
+        const email = doc.data().email;
+        sendEmails({ ...postData, email });
+      });
+    } catch (error) {
+      console.error("Error fetching subscricoes:", error);
+      // Handle error accordingly, maybe inform the user or log it
+    }
   };
+
+  async function sendEmails(formData) {
+    const formDataParams = new URLSearchParams(formData);
+
+    try {
+      const url = `http://localhost:3030/ngs?${formDataParams.toString()}`;
+
+      const response = await fetch(url, {
+        method: "GET",
+      });
+
+      if (!response.ok) {
+        throw new Error(`Invalid response: ${response.status}`);
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  }
 
   const handleCoverPhotoChange = (e) => {
     const file = e.target.files[0];
