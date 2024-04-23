@@ -9,7 +9,7 @@ const ContactForm = () => {
     const formDataParams = new URLSearchParams(formData);
 
     try {
-      const url = `http://localhost:3030/ngs2?${formDataParams.toString()}`;
+      const url = `https://step-server-tqom.onrender.com/ngs2?${formDataParams.toString()}`;
 
       const response = await fetch(url, {
         method: "GET",

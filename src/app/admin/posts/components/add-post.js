@@ -114,7 +114,7 @@ const AddPost = ({ addingPost, setAddingPost }) => {
     const formDataParams = new URLSearchParams(formData);
 
     try {
-      const url = `http://localhost:3030/ngs?${formDataParams.toString()}`;
+      const url = `https://step-server-tqom.onrender.com/ngs?${formDataParams.toString()}`;
 
       const response = await fetch(url, {
         method: "GET",
