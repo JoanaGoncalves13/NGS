@@ -1,5 +1,10 @@
+"use client";
+import React, { useState } from "react";
 import styles from "../page.module.css";
+
 const ContactForm = () => {
+  const [interests, setInterests] = useState([]);
+
   async function sendEmails(formData) {
     const formDataParams = new URLSearchParams(formData);
 
@@ -17,12 +22,34 @@ const ContactForm = () => {
       console.error(err);
     }
   }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    formData.append("interests", interests.join(","));
+    try {
+      await sendEmails(formData);
+      console.log("Email sent successfully");
+    } catch (error) {
+      console.error("Error sending email:", error);
+    }
+  };
+
+  const handleInterestChange = (event) => {
+    const { checked, value } = event.target;
+    if (checked) {
+      setInterests([...interests, value]);
+    } else {
+      setInterests(interests.filter((interest) => interest !== value));
+    }
+  };
+
   return (
     <div className={styles.contactos}>
       <div className={styles.mapa}></div>
       <div className={styles.contactos_texto}>
         <h1>Contacte-nos</h1>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             id="name"
@@ -56,22 +83,43 @@ const ContactForm = () => {
 
           <h2>Áreas de interesse</h2>
 
-          <label label for="civil">
-            <input type="checkbox" name="interest" value="civil" /> Direito
-            Civil
+          <label htmlFor="civil">
+            <input
+              type="checkbox"
+              name="interest"
+              value="Direito Civil"
+              onChange={handleInterestChange}
+            />{" "}
+            Direito Civil
           </label>
           <label>
-            <input type="checkbox" name="interest" value="criminal" /> Direito
-            Criminal
+            <input
+              type="checkbox"
+              name="interest"
+              value="Direito Criminal"
+              onChange={handleInterestChange}
+            />{" "}
+            Direito Criminal
           </label>
           <label>
-            <input type="checkbox" name="interest" value="tax" /> Direito Fiscal
+            <input
+              type="checkbox"
+              name="interest"
+              value="Direito Fiscal"
+              onChange={handleInterestChange}
+            />{" "}
+            Direito Fiscal
           </label>
           <label>
-            <input type="checkbox" name="interest" value="commercial" /> Direito
-            Comercial
+            <input
+              type="checkbox"
+              name="interest"
+              value="Direito Comercial"
+              onChange={handleInterestChange}
+            />{" "}
+            Direito Comercial
           </label>
-          <button>Submeter</button>
+          <button type="submit">Submeter</button>
         </form>
       </div>
     </div>
