@@ -18,6 +18,7 @@ const ContactForm = () => {
       if (!response.ok) {
         throw new Error(`Invalid response: ${response.status}`);
       }
+      alert("Obrigado pelo seu contacto");
     } catch (err) {
       console.error(err);
     }
