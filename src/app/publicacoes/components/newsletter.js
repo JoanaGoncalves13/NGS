@@ -46,7 +46,7 @@ const Newsletter = () => {
         email: formData.email,
         interests: formData.interests,
       };
-
+      console.log(newsletterData);
       // Add a new document with a generated id to the "newsletter" collection
       const docRef = await addDoc(
         collection(db, "subscricoes"),
@@ -108,52 +108,53 @@ const Newsletter = () => {
               required
               placeholder="Email "
             />
-
-            <div className={styles.subscricoes_areas}>
-              <h1>Áreas interesses</h1>
-              <label>
-                <input
-                  type="checkbox"
-                  name="Direito Civil"
-                  checked={formData.interests.includes("Direito Civil")}
-                  onChange={handleCheckboxChange}
-                />
-                Direito Civil
-              </label>
-              <br />
-              <label>
-                <input
-                  type="checkbox"
-                  name="Direito Criminal"
-                  checked={formData.interests.includes("Direito Criminal")}
-                  onChange={handleCheckboxChange}
-                />
-                Direito Criminal
-              </label>
-              <br />
-              <label>
-                <input
-                  type="checkbox"
-                  name="Direito Fiscal"
-                  checked={formData.interests.includes("Direito Fiscal")}
-                  onChange={handleCheckboxChange}
-                />
-                Direito Fiscal
-              </label>
-              <br />
-              <label>
-                <input
-                  type="checkbox"
-                  name="Direito Comercial"
-                  checked={formData.interests.includes("Direito Comercial")}
-                  onChange={handleCheckboxChange}
-                />
-                Direito Comercial
-              </label>
-            </div>
-
-            <button type="submit">Submeter</button>
           </form>
+        </div>
+      </div>
+      <div className={styles.subscricoes_areas}>
+        <h1>Áreas interesses</h1>
+        <div className={styles.form}>
+          <label>
+            <input
+              type="checkbox"
+              name="Direito Civil"
+              checked={formData.interests.includes("Direito Civil")}
+              onChange={handleCheckboxChange}
+            />
+            Direito Civil
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              name="Direito Criminal"
+              checked={formData.interests.includes("Direito Criminal")}
+              onChange={handleCheckboxChange}
+            />
+            Direito Criminal
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              name="Direito Fiscal"
+              checked={formData.interests.includes("Direito Fiscal")}
+              onChange={handleCheckboxChange}
+            />
+            Direito Fiscal
+          </label>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              name="Direito Comercial"
+              checked={formData.interests.includes("Direito Comercial")}
+              onChange={handleCheckboxChange}
+            />
+            Direito Comercial
+          </label>
+          <br />
+          <button onClick={handleFormSubmit} type="submit">Submeter</button>
         </div>
       </div>
     </div>

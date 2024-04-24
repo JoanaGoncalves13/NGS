@@ -50,9 +50,6 @@ const BlogPosts = ({ posts, setPosts, addingPost, search }) => {
 
   return (
     <>
-      <div className={styles.publicacoes}>
-        <h1>Eventos</h1>
-      </div>
       {filteredPosts.map((post, index) => (
         <div
           className={
