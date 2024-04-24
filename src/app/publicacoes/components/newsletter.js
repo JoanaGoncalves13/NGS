@@ -109,7 +109,7 @@ const Newsletter = () => {
               placeholder="Email "
             />
 
-            <div>
+            <div className={styles.subscricoes_areas}>
               <h1>Áreas interesses</h1>
               <label>
                 <input
