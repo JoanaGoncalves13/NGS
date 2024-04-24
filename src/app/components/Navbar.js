@@ -37,105 +37,108 @@ export default function Navbar() {
           content="NGS Leão e Associados, Sociedade de Advogados, SP, RL."
         />
       </Head>
-      {windowWidth >= 1000 ? (
+      {windowWidth != 0 ? (
         <>
-          <header className={styles.header}>
-            <div className={styles.headerImagem}>
-              <img
-                src={"./logoNGSpequeno.png"}
-                alt="logoPequeno"
-                style={{ width: "100px", height: "auto" }}
-              />
-            </div>
-            <div className={styles.headerTexto}>
-              <a href="quemSomos">
-                <p>Quem somos</p>
-              </a>
-              <a href="oQueFazemos">
-                <p>O que fazemos</p>
-              </a>
-              <a href="publicacoes">
-                <p>Publicações</p>
-              </a>
-              <a href="eventos">
-                <p>Eventos</p>
-              </a>
-              <a href="contactos">
-                <p>Contactos</p>
-              </a>
-            </div>
-          </header>
-        </>
-      ) : (
-        <>
-          <header className={styles.header}>
-            <nav className={styles.navigation}>
-              <a
-                href="/"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                <Image
-                  src="/logoNGSpequeno.png"
-                  alt="Logo da Clínica Veterinária"
-                  width={130}
-                  height={70}
-                  style={{
-                    height: "auto",
-                    width: "100px",
-                    backgroundColor: "white",
-                    borderRadius: "10px",
-                  }}
-                />
-              </a>
-              <div className={styles.menu}>
-                <FontAwesomeIcon icon={faBars} onClick={toggleMenu} />
-              </div>
-            </nav>
-          </header>
-          {isMenuOpen && (
-            <div className={styles.mobileMenu}>
-              <a className={styles.logoMenu} href="/">
-                <Image
-                  src="/logoNGSpequeno.png"
-                  alt="Logo da Clínica Veterinária"
-                  width={130}
-                  height={70}
-                  style={{
-                    height: "auto",
-                    width: "100px",
+          {windowWidth >= 1000 ? (
+            <>
+              <header className={styles.header}>
+                <div className={styles.headerImagem}>
+                  <img
+                    src={"./logoNGSpequeno.png"}
+                    alt="logoPequeno"
+                    style={{ width: "100px", height: "auto" }}
+                  />
+                </div>
+                <div className={styles.headerTexto}>
+                  <a href="quemSomos">
+                    <p>Quem somos</p>
+                  </a>
+                  <a href="oQueFazemos">
+                    <p>O que fazemos</p>
+                  </a>
+                  <a href="publicacoes">
+                    <p>Publicações</p>
+                  </a>
+                  <a href="eventos">
+                    <p>Eventos</p>
+                  </a>
+                  <a href="contactos">
+                    <p>Contactos</p>
+                  </a>
+                </div>
+              </header>
+            </>
+          ) : (
+            <>
+              <header className={styles.header}>
+                <nav className={styles.navigation}>
+                  <a
+                    href="/"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Image
+                      src="/logoNGSpequeno.png"
+                      alt="Logo da Clínica Veterinária"
+                      width={130}
+                      height={70}
+                      style={{
+                        height: "auto",
+                        width: "100px",
+                        backgroundColor: "white",
+                        borderRadius: "10px",
+                      }}
+                    />
+                  </a>
+                  <div className={styles.menu}>
+                    <FontAwesomeIcon icon={faBars} onClick={toggleMenu} />
+                  </div>
+                </nav>
+              </header>
+              {isMenuOpen && (
+                <div className={styles.mobileMenu}>
+                  <a className={styles.logoMenu} href="/">
+                    <Image
+                      src="/logoNGSpequeno.png"
+                      alt="Logo da Clínica Veterinária"
+                      width={130}
+                      height={70}
+                      style={{
+                        height: "auto",
+                        width: "100px",
+                      }}
+                    />
+                  </a>
+                  <FontAwesomeIcon
+                    icon={faXmark}
+                    className={styles.closeMenu}
+                    onClick={toggleMenu}
+                  />
 
-                  }}
-                />
-              </a>
-              <FontAwesomeIcon
-                icon={faXmark}
-                className={styles.closeMenu}
-                onClick={toggleMenu}
-              />
-
-              <a href="quemSomos">
-                <p>Quem somos</p>
-              </a>
-              <a href="oQueFazemos">
-                <p>O que fazemos</p>
-              </a>
-              <a href="publicacoes">
-                <p>Publicações</p>
-              </a>
-              <a href="eventos">
-                <p>Eventos</p>
-              </a>
-              <a href="contactos">
-                <p>Contactos</p>
-              </a>
-            </div>
+                  <a href="quemSomos">
+                    <p>Quem somos</p>
+                  </a>
+                  <a href="oQueFazemos">
+                    <p>O que fazemos</p>
+                  </a>
+                  <a href="publicacoes">
+                    <p>Publicações</p>
+                  </a>
+                  <a href="eventos">
+                    <p>Eventos</p>
+                  </a>
+                  <a href="contactos">
+                    <p>Contactos</p>
+                  </a>
+                </div>
+              )}
+            </>
           )}
         </>
-      )}
+      ) : null}
     </>
   );
 }

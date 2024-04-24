@@ -36,7 +36,7 @@ export default function Home() {
             <div className={styles.conteudo}>
               <p>
                 Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
-                Conteúdo Conteúdo Conteúdo Conteúdo Conteúdo
+                Conteúdo 
               </p>
             </div>
           </div>
