@@ -830,7 +830,7 @@
   display: flex;
   margin-right: 5%;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   color: #000000;
 }
@@ -845,20 +845,25 @@
 }
 
 .postinfo {
-  width: 50%;
+  width: 80%;
   height: 50%;
   display: flex;
   justify-content: flex-start;
-  align-items: ceflex-startnter;
+  align-items: flex-start;
   flex-direction: column;
 }
 
 .postinfo h1 {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 .postinfo p {
   font-weight: 300;
+  font-size: 15px;
+
+}
+.postBody{
+  font-size: 20px
 }
 
 .quadradoImagem {
@@ -870,10 +875,6 @@
   display: flex;
 }
 
-.conteudo {
-  margin-top: 2%;
-  font-size: 25px;
-}
 
 .buttonRed {
   background-color: #880e05;
@@ -1192,8 +1193,9 @@
     font-size: 30px;
   }
   .conteudo {
-    font-size: 16px;
+    font-size: 10px;
   }
+  
   .publicacoes {
     width: 90%;
   }
@@ -1235,6 +1237,24 @@
   flex-direction: column;
   width: 100%;
   padding: 20px;
+}
+
+
+.conteudo{
+  font-size: 15px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+
+.conteudoletra{
+  font-size: 15px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+
 }
 
 .container h1 {
@@ -1329,6 +1349,7 @@
 
 .title {
   font-size: 1.5em;
+  
 }
 
 .button {
@@ -1636,7 +1657,7 @@
 }
 
 .error_message {
-  color: red;
+  color: rgb(7, 4, 4);
 }
 
 .quill_container {

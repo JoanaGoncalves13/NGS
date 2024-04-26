@@ -68,15 +68,14 @@ const BlogPosts = ({ posts, setPosts, addingPost, search }) => {
           <div className={styles.quadradotexto}>
             <div className={styles.post}>
               <div className={styles.postinfo}>
-                <h1 style={{ color: "black" }}>{post.headline}</h1>
+                <h1>{post.headline}</h1>
                 <p>{formatDate(post.timestamp)}</p>
               </div>
               <button className={styles.buttonRed}>Ver mais</button>
             </div>
             <div className={styles.conteudo}>
               <div
-                style={{ color: "black" }}
-                className="ql-editor"
+                className={styles.conteudoletra}
                 dangerouslySetInnerHTML={{
                   __html: truncateBody(post.body),
                 }}

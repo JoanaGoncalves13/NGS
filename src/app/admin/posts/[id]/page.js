@@ -62,7 +62,9 @@ const Post = () => {
                   borderRadius: "10px",
                 }}
               />
-              <h1 className={styles.title}>{post.headline}</h1>
+              <h1 className={styles.title} style={{ marginTop: "0%" }}>
+                {post.headline}
+              </h1>
               <a href="/admin/posts">
                 <button className={styles.button}>Voltar</button>
               </a>

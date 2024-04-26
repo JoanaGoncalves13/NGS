@@ -3,6 +3,7 @@ import { collection, query, orderBy, getDocs } from "firebase/firestore";
 import { db } from "../../../../../firebase";
 import { useRouter } from "next/navigation";
 import { formatDate } from "@/utils";
+import styles from "../../../page.module.css";
 
 const BlogPosts = ({ posts, setPosts, addingPost, search }) => {
   const router = useRouter();
@@ -48,22 +49,40 @@ const BlogPosts = ({ posts, setPosts, addingPost, search }) => {
   };
 
   return (
-    <div>
-      <h1>Todos os eventos:</h1>
-      {filteredPosts.map((post) => (
+    <div className={styles.pub}>
+      <h1>Todas as publicações:</h1>
+      {filteredPosts.map((post, index) => (
         <div
-          key={post.id}
+          className={
+            index % 2 === 0 ? styles.quadradoinfo : styles.quadradoinfoVermelho
+          }
           onClick={() => router.push(`/admin/eventos/${post.id}`)}
         >
-          <h2>{post.headline}</h2>
-          {post.coverPhoto && <img src={post.coverPhoto} alt="Cover" />}
-          <div
-            className="ql-editor"
-            dangerouslySetInnerHTML={{
-              __html: truncateBody(post.body),
-            }}
-          />
-          <p>{formatDate(post.timestamp)}</p>
+          <div className={styles.quadradoImagem}>
+            <img
+              src={post.coverPhoto}
+              alt="logoPequeno"
+              style={{ width: "220px", height: "auto" }}
+            />
+          </div>
+          <div className={styles.quadradotexto}>
+            <div className={styles.post}>
+              <div className={styles.postinfo}>
+                <h1 style={{ color: "black" }}>{post.headline}</h1>
+                <p>{formatDate(post.timestamp)}</p>
+              </div>
+              <button className={styles.buttonRed}>Ver mais</button>
+            </div>
+            <div className={styles.conteudo}>
+              <div
+                style={{ color: "black" }}
+                className={styles.conteudoletra}
+                dangerouslySetInnerHTML={{
+                  __html: truncateBody(post.body),
+                }}
+              />
+            </div>
+          </div>
         </div>
       ))}
     </div>

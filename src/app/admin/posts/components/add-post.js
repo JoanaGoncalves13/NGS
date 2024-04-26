@@ -160,7 +160,6 @@ const AddPost = ({ addingPost, setAddingPost }) => {
               type="file"
               accept="image/*"
               onChange={handleCoverPhotoChange}
-              className="input-field"
             />
             {coverPhotoError && (
               <p className={styles.error_message}>{coverPhotoError}</p>

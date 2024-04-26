@@ -143,11 +143,9 @@ const EditPost = ({ post, setEditing }) => {
           }}
         />
         <h1 className={styles.title}>{post.headline}</h1>
-        <a href="/admin/posts"><button
-          className={styles.button}
-        >
-          Voltar
-        </button></a>
+        <a href="/admin/posts">
+          <button className={styles.button}>Voltar</button>
+        </a>
       </div>
       <div className={styles.EditPost}>
         <div className={styles.inputFieldEdit}>

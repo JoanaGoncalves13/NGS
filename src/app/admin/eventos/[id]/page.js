@@ -4,6 +4,10 @@ import { useParams, useRouter } from "next/navigation"; // Changed from next/nav
 import { doc, getDoc, deleteDoc } from "firebase/firestore"; // Added deleteDoc
 import { db } from "../../../../../firebase";
 import EditPost from "./components/edit-post";
+import styles from "../../../page.module.css";
+import { formatDate } from "@/utils";
+
+import Image from "next/image";
 
 const Post = () => {
   const { id } = useParams();
@@ -31,9 +35,9 @@ const Post = () => {
 
   const handleDelete = async () => {
     try {
-      await deleteDoc(doc(db, "posts", id));
+      await deleteDoc(doc(db, "eventos", id));
       console.log("Document successfully deleted!");
-      router.push("/admin"); // Redirect to home page or any other page after deletion
+      router.push("/admin/eventos"); // Redirect to home page or any other page after deletion
     } catch (error) {
       console.error("Error deleting document: ", error);
     }
@@ -42,22 +46,55 @@ const Post = () => {
   if (!post) return;
 
   return (
-    <div style={{ backgroundColor: "black" }}>
-      <h1>Evento</h1>
-
+    <div style={{ backgroundColor: "white" }}>
       {!editing ? (
         <div>
-          <h2>{post.headline}</h2>
-          {post.coverPhoto && <img src={post.coverPhoto} alt="Cover" />}
-          <div
-            className="ql-editor"
-            dangerouslySetInnerHTML={{
-              __html: post.body,
-            }}
-          />
-          {/*  <p>{formatDate(post.timestamp)}</p> */}
-          <button onClick={handleDelete}>Apagar</button>
-          <button onClick={() => setEditing(true)}>Editar</button>
+          <div className={styles.container}>
+            <div className={styles.headerPost}>
+              <Image
+                src="/logoNGSpequeno.png"
+                alt="Logo da Clínica Veterinária"
+                width={130}
+                height={70}
+                style={{
+                  height: "auto",
+                  width: "100px",
+                  backgroundColor: "white",
+                  borderRadius: "10px",
+                }}
+              />
+              <h1 className={styles.title} style={{ marginTop: "0%" }}>
+                {post.headline}
+              </h1>
+              <a href="/admin/eventos">
+                <button className={styles.button}>Voltar</button>
+              </a>
+            </div>
+            <div className={styles.postIndividual}>
+              {post.coverPhoto && (
+                <img
+                  src={post.coverPhoto}
+                  alt="Cover"
+                  className={styles.imgresponsive}
+                />
+              )}
+              <div
+                className={styles.editorContent}
+                dangerouslySetInnerHTML={{ __html: post.body }}
+              />
+              <p className={styles.timestamp}>{formatDate(post.timestamp)}</p>{" "}
+            </div>
+          </div>
+
+          <button className={styles.buttonDelete} onClick={handleDelete}>
+            Apagar
+          </button>
+          <button
+            className={styles.buttonEdit}
+            onClick={() => setEditing(true)}
+          >
+            Editar
+          </button>
         </div>
       ) : (
         <EditPost {...{ post, setEditing }} />

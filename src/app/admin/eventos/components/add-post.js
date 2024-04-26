@@ -9,6 +9,7 @@ import {
 import { db, storage } from "../../../../../firebase";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
+import styles from "../../../page.module.css";
 
 const AddPost = ({ addingPost, setAddingPost }) => {
   const ReactQuill = useMemo(
@@ -140,7 +141,7 @@ const AddPost = ({ addingPost, setAddingPost }) => {
   };
 
   return (
-    <div style={{ background: "black" }}>
+    <div className={styles.add_post_container}>
       {addingPost ? (
         <div>
           <div>
@@ -152,6 +153,7 @@ const AddPost = ({ addingPost, setAddingPost }) => {
               type="text"
               value={headline}
               onChange={(e) => setHeadline(e.target.value)}
+              placeholder="Introduza o título"
             />
             {headlineError && <p style={{ color: "red" }}>{headlineError}</p>}
           </div>
@@ -164,18 +166,22 @@ const AddPost = ({ addingPost, setAddingPost }) => {
               onChange={handleCoverPhotoChange}
             />
             {coverPhotoError && (
-              <p style={{ color: "red" }}>{coverPhotoError}</p>
+              <p className={styles.error_message}>{coverPhotoError}</p>
             )}
           </div>
+          <label>Conteúdo do Evento:</label>
           <ReactQuill
             theme="snow"
             modules={modules}
             formats={formats}
             value={editorHtml}
             onChange={handleChange}
+            placeholder="Conteúdo"
           />
           {editorHtmlError && <p style={{ color: "red" }}>{editorHtmlError}</p>}
-          <button onClick={handlePost}>Publicar</button>
+          <button className={styles.buttonPub} onClick={handlePost}>
+            Publicar
+          </button>
         </div>
       ) : (
         <button onClick={() => setAddingPost(true)}>
