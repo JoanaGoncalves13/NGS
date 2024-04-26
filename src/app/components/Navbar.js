@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 export default function Navbar() {
-  const [windowWidth, setWindowWidth] = useState(0);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -43,17 +43,34 @@ export default function Navbar() {
             <>
               <header className={styles.header}>
                 <div className={styles.headerImagem}>
-                  <img
-                    src={"./logoNGSpequeno.png"}
-                    alt="logoPequeno"
-                    style={{ width: "100px", height: "auto" }}
-                  />
+                  <a
+                    href="/"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Image
+                      src="/logoNGSpequeno.png"
+                      alt="Logo da Clínica Veterinária"
+                      loading="lazy"
+                      width={130}
+                      height={70}
+                      style={{
+                        height: "auto",
+                        width: "100px",
+                        backgroundColor: "white",
+                        borderRadius: "10px",
+                      }}
+                    />
+                  </a>
                 </div>
                 <div className={styles.headerTexto}>
-                  <a href="quemSomos">
+                  <a href="quemsomos">
                     <p>Quem somos</p>
                   </a>
-                  <a href="oQueFazemos">
+                  <a href="oquefazemos">
                     <p>O que fazemos</p>
                   </a>
                   <a href="publicacoes">
@@ -118,10 +135,10 @@ export default function Navbar() {
                     onClick={toggleMenu}
                   />
 
-                  <a href="quemSomos">
+                  <a href="quemsomos">
                     <p>Quem somos</p>
                   </a>
-                  <a href="oQueFazemos">
+                  <a href="oquefazemos">
                     <p>O que fazemos</p>
                   </a>
                   <a href="publicacoes">

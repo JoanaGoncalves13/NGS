@@ -107,6 +107,9 @@ input[type="checkbox"]{
   margin-right: 3%;
   
 }
+button{
+  cursor: pointer;
+}
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: light;
@@ -121,8 +124,8 @@ input[type="checkbox"]{
   background: #f1f1f1; }
 
 ::-webkit-scrollbar-thumb {
-  background: #880E05; 
+  background: #555; 
   transition: background-color 0.6s ease; }
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #383838; 
 }

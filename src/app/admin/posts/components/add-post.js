@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import styles from "../../../page.module.css";
+
 import {
   collection,
   addDoc,
@@ -134,7 +136,7 @@ const AddPost = ({ addingPost, setAddingPost }) => {
   };
 
   return (
-    <div style={{ background: "black" }}>
+    <div className={styles.add_post_container}>
       {addingPost ? (
         <div>
           <div>
@@ -146,8 +148,10 @@ const AddPost = ({ addingPost, setAddingPost }) => {
               type="text"
               value={headline}
               onChange={(e) => setHeadline(e.target.value)}
+              className="input-field"
+              placeholder="Introduza o título"
             />
-            {headlineError && <p style={{ color: "red" }}>{headlineError}</p>}
+            {headlineError && <p className="error-message">{headlineError}</p>}
           </div>
 
           <div>
@@ -156,20 +160,28 @@ const AddPost = ({ addingPost, setAddingPost }) => {
               type="file"
               accept="image/*"
               onChange={handleCoverPhotoChange}
+              className="input-field"
             />
             {coverPhotoError && (
-              <p style={{ color: "red" }}>{coverPhotoError}</p>
+              <p className={styles.error_message}>{coverPhotoError}</p>
             )}
           </div>
+          <label>Conteúdo do Post:</label>
           <ReactQuill
             theme="snow"
             modules={modules}
             formats={formats}
             value={editorHtml}
             onChange={handleChange}
+            className={styles.error_message}
+            placeholder="Conteúdo"
           />
-          {editorHtmlError && <p style={{ color: "red" }}>{editorHtmlError}</p>}
-          <button onClick={handlePost}>Publicar</button>
+          {editorHtmlError && (
+            <p className="error-message">{editorHtmlError}</p>
+          )}
+          <button className={styles.buttonPub} onClick={handlePost}>
+            Publicar
+          </button>
         </div>
       ) : (
         <button onClick={() => setAddingPost(true)}>Adicionar novo post</button>

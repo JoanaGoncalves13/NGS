@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../../../firebase";
+import styles from "../../page.module.css";
+import Image from "next/image";
 
 const Newsletter = () => {
   const [subscribers, setSubscribers] = useState([]);
@@ -21,7 +23,25 @@ const Newsletter = () => {
   }, []);
 
   return (
-    <div style={{ backgroundColor: "black" }}>
+    <div className={styles.container}>
+      <div className={styles.headerPost}>
+        <Image
+          src="/logoNGSpequeno.png"
+          alt="Logo da Clínica Veterinária"
+          width={130}
+          height={70}
+          style={{
+            height: "auto",
+            width: "100px",
+            backgroundColor: "white",
+            borderRadius: "10px",
+          }}
+        />
+        <a href="/admin">
+          <button className={styles.button}>Voltar</button>
+        </a>
+      </div>
+      <h1 className={styles.espaco}>Newsletter</h1>
       <table>
         <thead>
           <tr>

@@ -954,6 +954,37 @@
   font-size: 25px;
 }
 
+/* page.module.css */
+.searchContainer {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+  border: 1px solid #dfe1e5; /* Light grey border, adjust color to match the image */
+  border-radius: 24px; /* Rounded corners */
+  padding: 10px 20px;
+}
+
+.searchInput {
+  border: none;
+  font-size: 16px; /* Font size similar to the one in the image */
+  width: 100%; /* Full width of its container */
+  box-sizing: border-box; /* Include padding in the width */
+}
+
+/* Style for the input element when it's focused */
+.searchInput:focus {
+  color: #5d5d5d;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.3); /* Optional: add a light blue shadow for focus */
+}
+
+/* Optional: you can add a class for the SVG icon if you're using one */
+.searchIcon {
+  color: #5d5d5d;
+  width: 24px; /* Size of the icon */
+  height: 17px;
+  margin-left: 10px;
+}
+
 @media (max-width: 1100px) {
   .informacoes {
     flex-direction: column;
@@ -1192,4 +1223,527 @@
   .contactos_texto h1 {
     font-size: 30px;
   }
+}
+/* Post style */
+/* Post.module.css */
+.container {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+}
+
+.container h1 {
+  margin-top: 3%;
+}
+
+.headerPost {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  padding: 0 2rem;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  box-shadow: 0 9px 17px 0 rgba(0, 0, 0, 0.142);
+}
+
+.headerAdmin {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  padding: 0 2rem;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  box-shadow: 0 9px 17px 0 rgba(0, 0, 0, 0.142);
+}
+
+/* page.module.css */
+.adminContainer {
+  color: #880e05;
+  height: 70vh;
+  width: 30%;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.adminMenu {
+  background-color: #880e05;
+  border-radius: 20px;
+  color: white;
+  height: 40%;
+  width: 100%;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.adminButton {
+  background-color: #880e05;
+  border-radius: 20px;
+  color: white;
+  height: auto;
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.titleAdmin {
+  margin-bottom: 30px;
+}
+
+.buttonAdmin {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.buttonAdmin:hover {
+  background-color: #ad565098;
+  color: white;
+  border: 1px solid #ffffff; /* Light grey border, adjust color to match the image */
+}
+
+.title {
+  font-size: 1.5em;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #880e05;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #880e05d0;
+}
+
+.buttonDelete {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #880e05;
+  border: none;
+  margin-left: 10%;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttonDelete:hover {
+  background-color: #880e05d0;
+}
+
+.buttonEdit {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #7e7d7d;
+  border: none;
+  margin-left: 2%;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttonEdit:hover {
+  background-color: #032252d0;
+}
+
+.imgresponsive {
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.content {
+  margin-top: 40px;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.editorContent {
+  width: 90%;
+  margin-top: 15px;
+  margin-left: 5%;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.postIndividual {
+  box-shadow: 0px 0px 1px #507ab4;
+  max-width: 90%;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid white;
+  border-radius: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: white;
+}
+
+.buttonVoltar {
+  padding: 10px 20px;
+  background-color: #192a51;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttonVoltar:hover {
+  background-color: #507ab4;
+}
+
+.article {
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #192a51;
+}
+
+.headline {
+  color: #192a51;
+  margin-bottom: 10px;
+  font-size: 30px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.coverPhoto {
+  width: 80%;
+  height: auto;
+  margin-left: 10%;
+  border-radius: 10px;
+}
+
+.editorContent {
+  width: 90%;
+  margin-top: 15px;
+  margin-left: 5%;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.timestamp {
+  margin: 3%;
+  color: #666;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+.timestamp {
+  margin: 3%;
+  color: #666;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-left: 85%;
+}
+@media (max-width: 600px) {
+  .title {
+    font-size: 1.2em;
+  }
+
+  .button {
+    padding: 12px 24px;
+  }
+
+  .content {
+    font-size: 0.9em;
+  }
+}
+
+.EditPost {
+  border: 2px solid #880e05;
+  background-color: white;
+  display: flex;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 80%;
+  margin-top: 30px;
+}
+
+.inputFieldEdit {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.inputFieldEdit input,
+.inputFieldEdit select {
+  padding: 8px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.inputFieldEdit input[type="file"] {
+  padding: 5px;
+}
+
+.errorText {
+  color: red;
+  font-size: 14px;
+}
+
+.editorContainer {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 40px;
+  width: 80%;
+}
+
+.buttonOkay {
+  padding: 10px 20px;
+  background-color: #880e05;
+  color: white;
+  border: none;
+  margin: 40px;
+
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.buttonOkay:hover {
+  background-color: #08126db9;
+}
+.pub {
+  width: 85%;
+  border: 2px solid #880e05;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.pub h1 {
+  margin-top: 2%;
+}
+
+/* AddPost.css */
+.add_post_container {
+  background: rgb(255, 255, 255);
+  color: rgb(107, 17, 17);
+  border: 2px solid #880e05;
+  border-radius: 20px;
+  margin-top: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+}
+
+.add_post_container button {
+  background-color: #880e05;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.buttonPub {
+  background-color: #794b4788;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 5%;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-left: 83%;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.add_post_container button:hover {
+  background-color: #120a7ed0;
+}
+
+.add_post_container input[type="text"],
+.add_post_container input[type="file"] {
+  width: 100%;
+  padding: 8px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.add_post_container label {
+  margin-top: 10px;
+  display: block;
+}
+
+.error_message {
+  color: red;
+}
+
+.quill_container {
+  background: white;
+  border: 1px solid #ccc;
+}
+
+.buttonEntrar {
+  background-color: #8c0c0c;
+  color: white;
+  border: none;
+  width: 40%;
+  height: auto;
+  padding: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.buttonEntrar:hover {
+  background-color: #0056b3;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #880e05;
+  width: 40%;
+  height: 30vh;
+  justify-content: space-around;
+  text-align: center;
+  margin-top: 5%;
+  border-radius: 20px;
+  color: white;
+}
+
+/* Estilos gerais da tabela */
+.container table {
+  margin-top: 60%;
+  line-height: 40px;
+  width: 90%;
+  border-collapse: collapse; /* Assegura que as bordas entre células sejam combinadas */
+  border: 2px solid #cccbcb;
+  padding: 2%;
+  border-radius: 20px;
+  background-color: #f9f9f9; /* Cor de fundo leve para a tabela */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil para efeito elevado */
+  margin: auto; /* Centraliza a tabela horizontalmente */
+}
+
+.espaco {
+  margin-bottom: 3%;
+  color: white;
+  background-color: #880e05;
+  padding: 1%;
+}
+
+/* Estilos para os cabeçalhos da tabela */
+.container th {
+  background-color: #880e05; /* Cor de fundo escura para os cabeçalhos */
+  color: white; /* Texto branco para contraste */
+
+  font-weight: bold; /* Texto em negrito para os cabeçalhos */
+  padding: 15px 10px; /* Padding para espaçamento interno */
+  text-align: left; /* Alinhamento do texto à esquerda */
+  border-bottom: 1px solid #ccc; /* Linha de separação entre cabeçalho e corpo */
+}
+
+/* Estilos para as células da tabela */
+.container td {
+  text-align: left; /* Alinhamento do texto à esquerda */
+  padding: 10px; /* Espaçamento interno nas células */
+  border-bottom: 1px solid #ccc; /* Linha sutil entre as linhas */
+}
+
+/* Estilos para as linhas alternadas da tabela */
+.container tr:nth-child(even) {
+  background-color: #e7cdcb62; /* Cor de fundo alternada para melhor legibilidade */
+}
+
+/* Estilos para hover nas linhas */
+.container tr:hover {
+  background-color: #940f0662; /* Cor de fundo ao passar o mouse */
+}
+
+.dadosLogin {
+  background-color: white;
+  border-radius: 20px;
+  padding: 7%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputField {
+  width: 100%;
+  max-width: 300px;
+  padding: 8px;
+  margin-right: 5%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
 }

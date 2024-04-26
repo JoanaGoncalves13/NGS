@@ -1,9 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation"; // Changed from next/navigation
-import { doc, getDoc } from "firebase/firestore"; // Added deleteDoc
+import { useParams, useRouter } from "next/navigation";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../../../firebase";
 import { formatDate } from "@/utils";
+import styles from "../../page.module.css";
+import Image from "next/image";
 
 const Post = () => {
   const { id } = useParams();
@@ -28,22 +30,44 @@ const Post = () => {
     fetchPost();
   }, [id]);
 
-  if (!post) return;
+  if (!post) return null;
 
   return (
-    <div style={{ backgroundColor: "black" }}>
-      <h1>Post</h1>
-      <button onClick={() => router.push("/publicacoes")}>Voltar</button>
-      <div>
-        <h2>{post.headline}</h2>
-        {post.coverPhoto && <img src={post.coverPhoto} alt="Cover" />}
-        <div
-          className="ql-editor"
-          dangerouslySetInnerHTML={{
-            __html: post.body,
+    <div className={styles.container}>
+      <div className={styles.headerPost}>
+        <Image
+          src="/logoNGSpequeno.png"
+          alt="Logo da Clínica Veterinária"
+          width={130}
+          height={70}
+          style={{
+            height: "auto",
+            width: "100px",
+            backgroundColor: "white",
+            borderRadius: "10px",
           }}
         />
-        <p>{formatDate(post.timestamp)}</p>
+        <h1 className={styles.title}>{post.headline}</h1>
+        <button
+          className={styles.button}
+          onClick={() => router.push("/publicacoes")}
+        >
+          Voltar
+        </button>
+      </div>
+      <div className={styles.postIndividual}>
+        {post.coverPhoto && (
+          <img
+            src={post.coverPhoto}
+            alt="Cover"
+            className={styles.imgresponsive}
+          />
+        )}
+        <div
+          className={styles.editorContent}
+          dangerouslySetInnerHTML={{ __html: post.body }}
+        />
+        <p className={styles.timestamp}>{formatDate(post.timestamp)}</p>{" "}
       </div>
     </div>
   );

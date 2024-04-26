@@ -47,7 +47,19 @@ const ContactForm = () => {
 
   return (
     <div className={styles.contactos}>
-      <div className={styles.mapa}></div>
+      <div className={styles.mapa}>
+        <iframe
+          src="https://www.google.com/maps/d/u/4/embed?mid=1Wm7VX_0h1gwEq8Pngv2ZbeS1XfqYruI&ehbc=2E312F&noprof=1"
+          width="640"
+          height="480"
+          style={{
+            border: 0,
+            borderRadius: "10px",
+            width: "100%",
+            height: "100%",
+          }}
+        ></iframe>
+      </div>
       <div className={styles.contactos_texto}>
         <h1>Contacte-nos</h1>
         <form onSubmit={handleSubmit}>

@@ -1,10 +1,17 @@
+"use client";
 import Image from "next/image";
 import Head from "next/head";
 import styles from "../page.module.css";
 import Navbar from "../components/Navbar";
 import ContactForm from "../components/contact.form";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+
+  const Contacto = () => {
+    router.push("/contactos");
+  };
   return (
     <div>
       <Navbar />
@@ -31,7 +38,7 @@ export default function Home() {
               aquilo que ele precisa. Pode, por isso, dizer-se que praticamos
               uma advocacia feita à medida do cliente.
             </p>
-            <button>Contacte-nos</button>
+            <button onClick={Contacto}>Contacte-nos</button>
           </div>
         </div>
 
@@ -50,7 +57,7 @@ export default function Home() {
               <br />
               Esperamos poder ser-lhe útil.
             </p>
-            <button>Contacte-nos</button>
+            <button onClick={Contacto}>Contacte-nos</button>
           </div>
           <div className={styles.sociedade_imagem}></div>
         </div>

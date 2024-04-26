@@ -2,6 +2,8 @@
 import { Inter } from "next/font/google";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import styles from "../page.module.css";
+import Image from "next/image";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -45,28 +47,26 @@ export default function RootLayout({ children }) {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       {hasPermission ? (
         children
       ) : (
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            minHeight: "100vh",
-            textAlign: "center",
-          }}
-        >
-          <p>Acesso Admin</p>
-          <input
-            value={inputValue}
-            onChange={handleInputChange}
-            style={{ marginBottom: "10px" }}
-          />
-          <br />
-          <button onClick={handleButtonClick}>Entrar</button>
-          {error && <p>{error}</p>}
+        <div className={styles.loginContainer}>
+          <h1>Acesso Admin</h1>
+          <div className={styles.dadosLogin}>
+            <input
+              type="password"
+              value={inputValue}
+              onChange={handleInputChange}
+              className={styles.inputField}
+              placeholder="Introduza a password"
+            />
+            <br />
+            <button className={styles.buttonEntrar} onClick={handleButtonClick}>
+              Entrar
+            </button>
+            {error && <p className={styles.errorMessage}>{error}</p>}
+          </div>
         </div>
       )}
     </div>

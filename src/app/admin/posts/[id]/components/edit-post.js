@@ -4,6 +4,8 @@ import { updateDoc, doc } from "firebase/firestore";
 import { db, storage } from "../../../../../../firebase";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
+import styles from "../../../../page.module.css";
+import Image from "next/image";
 
 const EditPost = ({ post, setEditing }) => {
   const ReactQuill = useMemo(
@@ -126,33 +128,75 @@ const EditPost = ({ post, setEditing }) => {
   };
 
   return (
-    <div>
-      <div>
-        <label>Título:</label>
-        <input
-          type="text"
-          value={headline}
-          onChange={(e) => setHeadline(e.target.value)}
+    <div className={styles.container}>
+      <div className={styles.headerPost}>
+        <Image
+          src="/logoNGSpequeno.png"
+          alt="Logo da Clínica Veterinária"
+          width={130}
+          height={70}
+          style={{
+            height: "auto",
+            width: "100px",
+            backgroundColor: "white",
+            borderRadius: "10px",
+          }}
         />
-        {headlineError && <p style={{ color: "red" }}>{headlineError}</p>}
+        <h1 className={styles.title}>{post.headline}</h1>
+        <a href="/admin/posts"><button
+          className={styles.button}
+        >
+          Voltar
+        </button></a>
       </div>
+      <div className={styles.EditPost}>
+        <div className={styles.inputFieldEdit}>
+          <label>Título:</label>
+          <input
+            type="text"
+            value={headline}
+            onChange={(e) => setHeadline(e.target.value)}
+            className={styles.input}
+          />
+          {headlineError && <p className={styles.errorText}>{headlineError}</p>}
+        </div>
 
-      <div>
-        <label>Imagem de capa:</label>
-        <input type="file" accept="image/*" onChange={handleCoverPhotoChange} />
+        <div className={styles.inputFieldEdit}>
+          <label>Imagem de capa:</label>
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleCoverPhotoChange}
+          />
+          {coverPhoto && (
+            <img
+              src={coverPhoto}
+              alt="Capa do post"
+              style={{ width: "100%", height: "auto" }}
+            />
+          )}
+          {coverPhotoError && (
+            <p className={styles.errorText}>{coverPhotoError}</p>
+          )}
+        </div>
 
-        <img src={coverPhoto} alt="Capa do post" width={30} />
-        {coverPhotoError && <p style={{ color: "red" }}>{coverPhotoError}</p>}
+        <div className={styles.editorContainer}>
+          <ReactQuill
+            theme="snow"
+            modules={modules}
+            formats={formats}
+            value={editorHtml}
+            onChange={handleChange}
+          />
+          {editorHtmlError && (
+            <p className={styles.errorText}>{editorHtmlError}</p>
+          )}
+        </div>
+
+        <button onClick={handlePost} className={styles.buttonOkay}>
+          Confirmar alterações
+        </button>
       </div>
-      <ReactQuill
-        theme="snow"
-        modules={modules}
-        formats={formats}
-        value={editorHtml}
-        onChange={handleChange}
-      />
-      {editorHtmlError && <p style={{ color: "red" }}>{editorHtmlError}</p>}
-      <button onClick={handlePost}>Confirmar alterações</button>
     </div>
   );
 };

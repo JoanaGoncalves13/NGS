@@ -1,9 +1,26 @@
+"use client";
 import Image from "next/image";
 import Head from "next/head";
 import styles from "./page.module.css";
 import Navbar from "./components/Navbar";
 import ContactForm from "./components/contact.form";
+import { useRouter } from "next/navigation";
+
 export default function Home() {
+  const router = useRouter();
+
+  const QuemSomos = () => {
+    router.push("/quemsomos");
+  };
+  const Eventos = () => {
+    router.push("/eventos");
+  };
+  const OqueFazemos = () => {
+    router.push("/oquefazemos");
+  };
+  const Blog = () => {
+    router.push("/publicacoes");
+  };
   return (
     <div>
       <Navbar />
@@ -31,24 +48,32 @@ export default function Home() {
             <div className={styles.quadradotransparente_info}>
               <h1>Conheça-nos</h1>
               <p>Somos o seu parceiro confiável.</p>
-              <button className={styles.button1}>Ver mais</button>
+              <button className={styles.button1} onClick={QuemSomos}>
+                Ver mais
+              </button>
             </div>
             <div className={styles.quadradovermelho_info}>
               <h1>O que fazemos</h1>
               <p>Descubra como o podemos ajudar.</p>
-              <button className={styles.button2}>Ver mais</button>{" "}
+              <button className={styles.button2} onClick={OqueFazemos}>
+                Ver mais
+              </button>
             </div>
           </div>
           <div className={styles.info1}>
             <div className={styles.quadradovermelho_info}>
               <h1>Mantenha-se a par</h1>
               <p>Consulte o nosso blog para atualizações.</p>
-              <button className={styles.button2}>Blog</button>{" "}
+              <button className={styles.button2} onClick={Blog}>
+                Blog
+              </button>
             </div>
             <div className={styles.quadradotransparente_info}>
               <h1>Eventos</h1>
               <p>Participe nos nossos eventos.</p>
-              <button className={styles.button1}>Ver mais</button>{" "}
+              <button className={styles.button1} onClick={Eventos}>
+                Ver mais
+              </button>
             </div>
           </div>
         </div>
