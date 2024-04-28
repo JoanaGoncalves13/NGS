@@ -426,7 +426,7 @@
   align-items: center;
   flex-direction: row;
   width: 65%;
-  height: 700px;
+  height: auto;
 }
 
 .sociedade_imagem {
@@ -475,7 +475,7 @@
   align-items: center;
   flex-direction: row;
   width: 65%;
-  height: 700px;
+  height: auto;
 }
 
 .areas_imagem {
@@ -711,7 +711,7 @@
 
 .subscricoes_areas {
   width: 25%;
-  height: 100%;
+  height: auto;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -1078,7 +1078,7 @@
   .areas,
   .honorarios {
     width: 90%;
-    height: 800px;
+    height: auto;
   }
   .publicacoes {
     height: auto;
@@ -1519,18 +1519,17 @@
   .container {
     padding: 20px 0px;
   }
-  .headerPost{
+  .headerPost {
     padding: 0 0.5rem;
   }
   .postIndividual {
     margin: 20px 0px;
     padding: 10px;
   }
-  .button{
+  .button {
     padding: 10px 15px;
   }
-  .container h1{
-
+  .container h1 {
     display: none;
   }
 }

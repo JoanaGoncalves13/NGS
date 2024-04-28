@@ -16,6 +16,17 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.imageInicial2}>
+          <img
+            src={"/canetapapel.jpg"}
+            width={4000}
+            height={5828}
+            alt="logo"
+            style={{
+              height: "100%",
+              width: "100%",
+              objectFit: "cover",
+            }}
+          />
           <div className={styles.quadrado}>
             <div className={styles.quadrado_texto}>
               <h1>Eventos</h1>

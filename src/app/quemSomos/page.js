@@ -17,6 +17,17 @@ export default function Home() {
       <Navbar />
       <main className={styles.main}>
         <div className={styles.imageInicial2}>
+          <img
+            src={"/pexels-skitterphoto-442420.jpg"}
+            width={4000}
+            height={5828}
+            alt="logo"
+            style={{
+              height: "100%",
+              width: "100%",
+              objectFit: "cover",
+            }}
+          />
           <div className={styles.quadrado}>
             <div className={styles.quadrado_texto}>
               <h1>A Sociedade</h1>
@@ -25,7 +36,20 @@ export default function Home() {
         </div>
 
         <div className={styles.sociedade}>
-          <div className={styles.sociedade_imagem}></div>
+          <div className={styles.sociedade_imagem}>
+            <img
+              src={"/pexels-sora-shimazaki-5669602.jpg"}
+              width={4000}
+              height={5828}
+              alt="logo"
+              style={{
+                height: "100%",
+                width: "100%",
+                objectFit: "cover",
+                borderRadius: "10px",
+              }}
+            />
+          </div>
           <div className={styles.sociedade_texto}>
             <p>
               Somos uma sociedade de advogados em que a juventude se entrelaça
@@ -59,7 +83,20 @@ export default function Home() {
             </p>
             <button onClick={Contacto}>Contacte-nos</button>
           </div>
-          <div className={styles.sociedade_imagem}></div>
+          <div className={styles.sociedade_imagem}>
+            <img
+              src={"/analisa.jpg"}
+              width={4000}
+              height={5828}
+              alt="logo"
+              style={{
+                height: "100%",
+                width: "100%",
+                objectFit: "cover",
+                borderRadius: "10px",
+              }}
+            />
+          </div>
         </div>
 
         <ContactForm />

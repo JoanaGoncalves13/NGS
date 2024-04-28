@@ -11,6 +11,17 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.imageInicial2}>
+          <img
+            src={"/biblioteca.jpg"}
+            width={6000}
+            height={7828}
+            alt="logo"
+            style={{
+              height: "100%",
+              width: "100%",
+              objectFit: "cover",
+            }}
+          />
           <div className={styles.quadrado}>
             <div className={styles.quadrado_texto}>
               <h1>Áreas de prática</h1>
@@ -38,12 +49,37 @@ export default function Home() {
             </p>
             <button>Contacte-nos</button>
           </div>
-          <div className={styles.sociedade_imagem}></div>
+          <div className={styles.areas_imagem}>
+            <img
+              src={"/maos.jpg"}
+              width={7000}
+              height={7828}
+              alt="logo"
+              style={{
+                height: "100%",
+                width: "100%",
+                objectFit: "cover",
+                borderRadius: "10px",
+              }}
+            />
+          </div>{" "}
         </div>
 
         <div className={styles.areas}>
-          <div className={styles.areas_imagem}></div>
-
+          <div className={styles.areas_imagem}>
+            <img
+              src={"/assin.jpg"}
+              width={7000}
+              height={7828}
+              alt="logo"
+              style={{
+                height: "100%",
+                width: "100%",
+                objectFit: "cover",
+                borderRadius: "10px",
+              }}
+            />
+          </div>
           <div className={styles.areas_texto}>
             <p>
               No que se refere aos chamados Direitos Humanos, poderemos, entre
@@ -89,7 +125,20 @@ export default function Home() {
               322-A/2001, de 14 de Dezembro).
             </p>
           </div>
-          <div className={styles.honorarios_imagem}></div>
+          <div className={styles.honorarios_imagem}>
+            <img
+              src={"/books.jpg"}
+              width={7000}
+              height={7828}
+              alt="logo"
+              style={{
+                height: "100%",
+                width: "100%",
+                objectFit: "cover",
+                borderRadius: "10px",
+              }}
+            />
+          </div>
         </div>
 
         <ContactForm />
