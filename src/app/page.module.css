@@ -1136,6 +1136,8 @@
   }
   .quadradovermelho_info,
   .quadradotransparente_info {
+    height: 40%;
+
     width: 100%;
   }
   .button1,
