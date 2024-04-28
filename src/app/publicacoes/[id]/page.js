@@ -47,7 +47,9 @@ const Post = () => {
             borderRadius: "10px",
           }}
         />
-        <h1 className={styles.title}>{post.headline}</h1>
+        <h1 className={styles.title} style={{ marginTop: "0%" }}>
+          {post.headline}
+        </h1>
         <button
           className={styles.button}
           onClick={() => router.push("/publicacoes")}

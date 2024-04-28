@@ -92,6 +92,7 @@ const ContactForm = () => {
             name="message"
             required
             placeholder="Descreva-nos o seu problema"
+            style={{ width: "100%", height: "50px" }}
           ></textarea>
 
           <h2>Áreas de interesse</h2>

@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { updateDoc, doc } from "firebase/firestore";
-import { db, storage } from "../../../../../../firebase";
+import { db, storage } from "../../../../../firebase";
 import dynamic from "next/dynamic";
 import "react-quill/dist/quill.snow.css";
 

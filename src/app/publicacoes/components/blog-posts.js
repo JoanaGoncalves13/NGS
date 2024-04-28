@@ -66,7 +66,7 @@ const BlogPosts = ({ posts, setPosts, addingPost, search }) => {
             <img
               src={post.coverPhoto}
               alt="logoPequeno"
-              style={{ width: "220px", height: "auto" }}
+              style={{ width: "100%", height: "auto" }}
             />
           </div>
           <div className={styles.quadradotexto}>
