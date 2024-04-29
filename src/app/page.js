@@ -5,8 +5,10 @@ import styles from "./page.module.css";
 import Navbar from "./components/Navbar";
 import ContactForm from "./components/contact.form";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
+  const { t, i18n } = useTranslation();
   const router = useRouter();
 
   const QuemSomos = () => {
@@ -21,6 +23,7 @@ export default function Home() {
   const Blog = () => {
     router.push("/publicacoes");
   };
+
   return (
     <div>
       <Navbar />
@@ -36,43 +39,43 @@ export default function Home() {
               />
             </div>
             <div className={styles.quadradoInicial_texto}>
-              <p>Portugal</p>
-              <p>Espanha</p>
-              <p>Suiça</p>
-              <p>Brasil</p>
+              <p>{t("welcomeCountries1")}</p>
+              <p>{t("welcomeCountries2")}</p>
+              <p>{t("welcomeCountries3")}</p>
+              <p>{t("welcomeCountries4")}</p>
             </div>
           </div>
         </div>
         <div className={styles.informacoes}>
           <div className={styles.info1}>
             <div className={styles.quadradotransparente_info}>
-              <h1>Conheça-nos</h1>
-              <p>Somos o seu parceiro confiável.</p>
+              <h1>{t("getToKnowUsTitle")}</h1>
+              <p>{t("getToKnowUsDescription")}</p>
               <button className={styles.button1} onClick={QuemSomos}>
-                Ver mais
+                {t("getToKnowUsButton")}
               </button>
             </div>
             <div className={styles.quadradovermelho_info}>
-              <h1>O que fazemos</h1>
-              <p>Descubra como o podemos ajudar.</p>
+              <h1>{t("whatWeDoTitle")}</h1>
+              <p>{t("whatWeDoDescription")}</p>
               <button className={styles.button2} onClick={OqueFazemos}>
-                Ver mais
+                {t("whatWeDoButton")}
               </button>
             </div>
           </div>
           <div className={styles.info1}>
             <div className={styles.quadradovermelho_info}>
-              <h1>Mantenha-se a par</h1>
-              <p>Consulte o nosso blog para atualizações.</p>
+              <h1>{t("stayUpdatedTitle")}</h1>
+              <p>{t("stayUpdatedDescription")}</p>
               <button className={styles.button2} onClick={Blog}>
-                Blog
+                {t("stayUpdatedButton")}
               </button>
             </div>
             <div className={styles.quadradotransparente_info}>
-              <h1>Eventos</h1>
-              <p>Participe nos nossos eventos.</p>
+              <h1>{t("eventsTitle")}</h1>
+              <p>{t("eventsDescription")}</p>
               <button className={styles.button1} onClick={Eventos}>
-                Ver mais
+                {t("eventsButton")}
               </button>
             </div>
           </div>
@@ -83,52 +86,48 @@ export default function Home() {
       <footer className={styles.footer}>
         <div className={styles.localizacoes}>
           <div className={styles.lx}>
-            <h1>Sede (Lisboa)</h1>
+            <h1>{t("footerHeadquartersTitle")}</h1>
             <div className={styles.infolocal}>
-              <p>Estrada de Benfica, 447 - 1º Dtº, 1500-080 Lisboa</p>
+              <p>{t("footerAddressLisbon")}</p>
               <div className={styles.letrasCores}>
-                <p className={styles.red}>Tel.</p>
-                <p>+351 21 778 85 76</p>
+                <p className={styles.red}>{t("footerContactTelephone")}</p>
+                <p>{t("footerContactNumberLisbonPhone")}</p>
               </div>
               <div className={styles.letrasCores}>
-                <p className={styles.red}>Fax </p>
-                <p>+351 21 778 12 05</p>
+                <p className={styles.red}>{t("footerContactFax")}</p>
+                <p>{t("footerContactNumberLisbonFax")}</p>
               </div>
               <div className={styles.letrasCores}>
-                <p className={styles.red}>Tlm. </p>
-                <p>+351 96 405 14 54 (24 horas)</p>
+                <p className={styles.red}>{t("footerContactMobile")}</p>
+                <p>{t("footerContactNumberLisbonMobile")}</p>
               </div>
               <div className={styles.letrasCores}>
-                <p className={styles.red}>E-mail</p>
-                <p>geral.lisboa@ngsadvogados.com</p>
+                <p className={styles.red}>{t("footerContactEmail")}</p>
+                <p>{t("footerContactNumberLisbonEmail")}</p>
               </div>
             </div>
           </div>
           <div className={styles.norte}>
-            <h1>Delegação Norte</h1>
+            <h1>{t("footerNorthBranchTitle")}</h1>
             <div className={styles.infolocal}>
-              <p>Largo da Porta Nova 39 - 1º, 4750-329 Barcelos</p>
+              <p>{t("footerAddressBarcelos")}</p>
               <div className={styles.letrasCores}>
-                <p className={styles.red}>Tel. </p>
-                <p>+351 25 314 96 16</p>
+                <p className={styles.red}>{t("footerContactTelephone")}</p>
+                <p>{t("footerContactNumberBarcelosPhone")}</p>
               </div>
               <div className={styles.letrasCores}>
-                <p className={styles.red}>Fax </p>
-                <p>+351 25 314 96 18</p>
+                <p className={styles.red}>{t("footerContactFax")}</p>
+                <p>{t("footerContactNumberBarcelosFax")}</p>
               </div>
-
               <div className={styles.letrasCores}>
-                <p className={styles.red}>E-mail</p>
-                <p>geral.barcelos@ngsadvogados.com</p>
+                <p className={styles.red}>{t("footerContactEmail")}</p>
+                <p>{t("footerContactNumberBarcelosEmail")}</p>
               </div>
             </div>
           </div>
         </div>
         <div className={styles.assin}>
-          <p>
-            © 2024 NGS - Leão e Associados. All rights reserved. | Powered by
-            STEP
-          </p>
+          <p>{t("footerRights")}</p>
         </div>
       </footer>
     </div>

@@ -5,11 +5,18 @@ import Image from "next/image";
 import styles from "../page.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
+  const { t, i18n } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState("pt"); // New state to track the current language
+
   const [windowWidth, setWindowWidth] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const flags = {
+    pt: { name: "Português", svg: "/flags/portugal.svg" },
+    en: { name: "English", svg: "/flags/uk.svg" },
+  };
   useEffect(() => {
     // Function to update window width when resized
     const handleResize = () => {
@@ -27,6 +34,10 @@ export default function Navbar() {
   }, []); // Empty dependency array to run effect only once on component mount
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+    setCurrentLanguage(language);
   };
   return (
     <>
@@ -82,6 +93,17 @@ export default function Navbar() {
                   <a href="contactos">
                     <p>Contactos</p>
                   </a>
+                  <div onClick={() => changeLanguage("pt")}>
+                    <img
+                      src={flags.pt.svg}
+                      alt="Flag"
+                      style={{
+                        width: "20px",
+                        height: "auto",
+                        marginRight: "5px",
+                      }}
+                    />
+                  </div>
                 </div>
               </header>
             </>
