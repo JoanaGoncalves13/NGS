@@ -65,8 +65,9 @@ const Post = () => {
             className={styles.imgresponsive}
           />
         )}
+        {/*Aqui ql-editor*/}
         <div
-          className={styles.editorContent}
+          className={styles.editorContent} 
           dangerouslySetInnerHTML={{ __html: post.body }}
         />
         <p className={styles.timestamp}>{formatDate(post.timestamp)}</p>{" "}

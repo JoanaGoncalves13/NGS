@@ -203,7 +203,6 @@
   border-style: solid; /* Define o estilo do border como sólido */
   transition: background-color 0.3s ease;
   padding: 10px;
-
 }
 
 .info1 button:hover {
@@ -889,7 +888,7 @@
   padding: 2%;
   display: flex;
 }
-.quadradoImagem img{
+.quadradoImagem img {
   border-radius: 10px;
 }
 .buttonRed {
@@ -938,7 +937,7 @@
 .mobileMenu {
   position: fixed;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   top: 0;
   background-color: #ffffff;
   z-index: 100;
@@ -1154,7 +1153,6 @@
   }
   .quadradovermelho_info,
   .quadradotransparente_info {
-
     width: 100%;
   }
 
@@ -1164,7 +1162,6 @@
     height: auto;
     padding: 10px;
     gap: 20px;
-    
   }
 
   .lx,
@@ -1208,7 +1205,7 @@
   .honorarios {
     flex-direction: column;
   }
-  
+
   .areas {
     flex-direction: column-reverse;
   }

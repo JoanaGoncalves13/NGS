@@ -44,6 +44,7 @@ const ContactForm = () => {
       <div className={styles.mapa}>
         <iframe
           src="https://www.google.com/maps/d/u/4/embed?mid=1Wm7VX_0h1gwEq8Pngv2ZbeS1XfqYruI&ehbc=2E312F&noprof=1"
+          alt="Cover"
           width="640"
           height="480"
           style={{
