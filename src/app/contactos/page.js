@@ -8,16 +8,8 @@ import ContactForm from "../components/contact.form";
 import { useTranslation } from "react-i18next";
 
 export default function Home() {
-  const { t, i18n } = useTranslation();
-  useEffect(() => {
-    const savedLanguage =
-      typeof window !== "undefined" ? localStorage.getItem("language") : null;
-    if (savedLanguage) {
-      i18n.changeLanguage(savedLanguage);
-      console.log("lang changed");
-      setCurrentLanguage(savedLanguage);
-    }
-  }, [i18n]); 
+  const { t } = useTranslation();
+
   return (
     <div>
       <Navbar />

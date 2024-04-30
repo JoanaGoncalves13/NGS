@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState("pt"); // New state to track the current language
   useEffect(() => {
     const savedLanguage =
       typeof window !== "undefined" ? localStorage.getItem("language") : null;
@@ -18,7 +19,6 @@ export default function Navbar() {
       setCurrentLanguage(savedLanguage);
     }
   }, [i18n]); // Empty dependency array to run effect only once on component mount
-  const [currentLanguage, setCurrentLanguage] = useState("pt"); // New state to track the current language
 
   const [windowWidth, setWindowWidth] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
