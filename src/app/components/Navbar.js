@@ -154,14 +154,13 @@ export default function Navbar() {
                     }}
                   >
                     <Image
-                      src="/logoNGSpequeno.png"
+                      src="/NGS_logoBranco.png"
                       alt="Logo da Clínica Veterinária"
                       width={130}
                       height={70}
                       style={{
                         height: "auto",
                         width: "100px",
-                        backgroundColor: "white",
                         borderRadius: "10px",
                       }}
                     />

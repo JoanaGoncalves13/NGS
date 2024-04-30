@@ -50,7 +50,6 @@ const BlogPosts = ({ posts, setPosts, addingPost, search }) => {
 
   return (
     <div className={styles.pub}>
-      <h1>Todas as publicações:</h1>
       {filteredPosts.map((post, index) => (
         <div
           className={

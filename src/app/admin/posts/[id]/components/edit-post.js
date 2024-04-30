@@ -170,7 +170,7 @@ const EditPost = ({ post, setEditing }) => {
             <img
               src={coverPhoto}
               alt="Capa do post"
-              style={{ width: "50%", height: "auto" }}
+              style={{ width: "25%", height: "auto" }}
             />
           )}
           {coverPhotoError && (
