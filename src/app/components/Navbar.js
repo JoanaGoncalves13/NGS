@@ -79,31 +79,41 @@ export default function Navbar() {
                 </div>
                 <div className={styles.headerTexto}>
                   <a href="quemsomos">
-                    <p>Quem somos</p>
+                    <p>{t("navbar.whoWeAre")}</p>
                   </a>
                   <a href="oquefazemos">
-                    <p>O que fazemos</p>
+                    <p>{t("navbar.whatWeDo")}</p>
                   </a>
                   <a href="publicacoes">
-                    <p>Publicações</p>
+                    <p>{t("navbar.publications")}</p>
                   </a>
                   <a href="eventos">
-                    <p>Eventos</p>
+                    <p>{t("navbar.events")}</p>
                   </a>
                   <a href="contactos">
-                    <p>Contactos</p>
+                    <p>{t("navbar.contacts")}</p>
                   </a>
-                  <div onClick={() => changeLanguage("pt")}>
-                    <img
-                      src={flags.pt.svg}
-                      alt="Flag"
-                      style={{
-                        width: "20px",
-                        height: "auto",
-                        marginRight: "5px",
-                      }}
-                    />
-                  </div>
+                  <img
+                    onClick={() => changeLanguage("pt")}
+                    src={flags.pt.svg}
+                    alt="Flag"
+                    style={{
+                      width: "20px",
+                      height: "auto",
+                      marginRight: "5px",
+                      marginLeft:"20%"
+                    }}
+                  />
+                  <img
+                    onClick={() => changeLanguage("en")}
+                    src={flags.en.svg}
+                    alt="Flag"
+                    style={{
+                      width: "20px",
+                      height: "auto",
+                      marginRight: "5px",
+                    }}
+                  />
                 </div>
               </header>
             </>
@@ -158,20 +168,40 @@ export default function Navbar() {
                   />
 
                   <a href="quemsomos">
-                    <p>Quem somos</p>
+                    <p>{t("navbar.whoWeAre")}</p>
                   </a>
                   <a href="oquefazemos">
-                    <p>O que fazemos</p>
+                    <p>{t("navbar.whatWeDo")}</p>
                   </a>
                   <a href="publicacoes">
-                    <p>Publicações</p>
+                    <p>{t("navbar.publications")}</p>
                   </a>
                   <a href="eventos">
-                    <p>Eventos</p>
+                    <p>{t("navbar.events")}</p>
                   </a>
                   <a href="contactos">
-                    <p>Contactos</p>
+                    <p>{t("navbar.contacts")}</p>
                   </a>
+                  <img
+                    onClick={() => changeLanguage("pt")}
+                    src={flags.pt.svg}
+                    alt="Flag"
+                    style={{
+                      width: "20px",
+                      height: "auto",
+                      marginRight: "5px",
+                    }}
+                  />
+                  <img
+                    onClick={() => changeLanguage("en")}
+                    src={flags.en.svg}
+                    alt="Flag"
+                    style={{
+                      width: "20px",
+                      height: "auto",
+                      marginRight: "5px",
+                    }}
+                  />
                 </div>
               )}
             </>

@@ -4,8 +4,10 @@ import { db } from "../../../../firebase";
 import { useRouter } from "next/navigation";
 import { formatDate } from "@/utils";
 import styles from "../../page.module.css";
+import { useTranslation } from "react-i18next";
 
 const BlogPosts = ({ posts, setPosts, addingPost, search }) => {
+  const { t } = useTranslation();
   const router = useRouter();
   const [filteredPosts, setFilteredPosts] = useState([]);
 
@@ -70,7 +72,7 @@ const BlogPosts = ({ posts, setPosts, addingPost, search }) => {
                 <h1 style={{ color: "black" }}>{post.headline}</h1>
                 <p>{formatDate(post.timestamp)}</p>
               </div>
-              <button className={styles.buttonRed}>Ver mais</button>
+              <button className={styles.buttonRed}>{t('getToKnowUsButton')}</button>
             </div>
             <div className={styles.conteudo}>
               <div

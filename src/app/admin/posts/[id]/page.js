@@ -45,9 +45,9 @@ const Post = () => {
   if (!post) return;
 
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <>
       {!editing ? (
-        <div>
+        <>
           <div className={styles.container}>
             <div className={styles.headerPost}>
               <Image
@@ -84,20 +84,22 @@ const Post = () => {
               <p className={styles.timestamp}>{formatDate(post.timestamp)}</p>{" "}
             </div>
           </div>
-          <button className={styles.buttonDelete} onClick={handleDelete}>
-            Apagar
-          </button>
-          <button
-            className={styles.buttonEdit}
-            onClick={() => setEditing(true)}
-          >
-            Editar
-          </button>
-        </div>
+          <div style={{display:"flex", width:"100%"}}>
+            <button className={styles.buttonDelete} onClick={handleDelete}>
+              Apagar
+            </button>
+            <button
+              className={styles.buttonEdit}
+              onClick={() => setEditing(true)}
+            >
+              Editar
+            </button>
+          </div>
+        </>
       ) : (
         <EditPost {...{ post, setEditing }} />
       )}
-    </div>
+    </>
   );
 };
 

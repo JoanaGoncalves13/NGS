@@ -1,8 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import styles from "../page.module.css";
+import { useTranslation } from "react-i18next";
 
 const ContactForm = () => {
+  const { t } = useTranslation();
   const [interests, setInterests] = useState([]);
 
   async function sendEmails(formData) {
@@ -10,17 +12,14 @@ const ContactForm = () => {
 
     try {
       const url = `https://step-server-tqom.onrender.com/ngs2?${formDataParams.toString()}`;
-
-      const response = await fetch(url, {
-        method: "GET",
-      });
+      const response = await fetch(url, { method: "GET" });
 
       if (!response.ok) {
-        throw new Error(`Invalid response: ${response.status}`);
+        throw new Error(`${t("contactForm.errorMessage")}: ${response.status}`);
       }
-      alert("Obrigado pelo seu contacto");
+      alert(t("contactForm.thanksMessage"));
     } catch (err) {
-      console.error(err);
+      console.error(err.message);
     }
   }
 
@@ -28,12 +27,7 @@ const ContactForm = () => {
     event.preventDefault();
     const formData = new FormData(event.target);
     formData.append("interests", interests.join(","));
-    try {
-      await sendEmails(formData);
-      console.log("Email sent successfully");
-    } catch (error) {
-      console.error("Error sending email:", error);
-    }
+    await sendEmails(formData);
   };
 
   const handleInterestChange = (event) => {
@@ -61,79 +55,55 @@ const ContactForm = () => {
         ></iframe>
       </div>
       <div className={styles.contactos_texto}>
-        <h1>Contacte-nos</h1>
+        <h1>{t("contactForm.title")}</h1>
         <form onSubmit={handleSubmit}>
           <input
             type="text"
             id="name"
             name="name"
             required
-            placeholder="Nome "
+            placeholder={t("contactForm.namePlaceholder")}
           />
-
           <input
             type="tel"
             id="phone"
             name="phone"
             required
-            placeholder="Telefone"
+            placeholder={t("contactForm.phonePlaceholder")}
           />
-
           <input
             type="email"
             id="email"
             name="email"
             required
-            placeholder="Email "
+            placeholder={t("contactForm.emailPlaceholder")}
           />
-
           <textarea
             id="message"
             name="message"
             required
-            placeholder="Descreva-nos o seu problema"
-            style={{ width: "100%", height: "50px" }}
+            placeholder={t("contactForm.messagePlaceholder")}
+            style={{
+              width: "100%",
+              height: "50px",
+              resize: "none",
+              fontSize: "17px",
+              fontWeight: 100,
+            }}
           ></textarea>
-
-          <h2>Áreas de interesse</h2>
-
-          <label htmlFor="civil">
-            <input
-              type="checkbox"
-              name="interest"
-              value="Direito Civil"
-              onChange={handleInterestChange}
-            />{" "}
-            Direito Civil
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="interest"
-              value="Direito Criminal"
-              onChange={handleInterestChange}
-            />{" "}
-            Direito Criminal
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="interest"
-              value="Direito Fiscal"
-              onChange={handleInterestChange}
-            />{" "}
-            Direito Fiscal
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              name="interest"
-              value="Direito Comercial"
-              onChange={handleInterestChange}
-            />{" "}
-            Direito Comercial
-          </label>
-          <button type="submit">Submeter</button>
+          <h2>{t("contactForm.interestAreas")}</h2>
+          {["civilLaw", "criminalLaw", "taxLaw", "commercialLaw"].map((law) => (
+            <label key={law}>
+              <input
+                type="checkbox"
+                name="interest"
+                value={t(`contactForm.${law}`)}
+                onChange={handleInterestChange}
+              />{" "}
+              {t(`contactForm.${law}`)}
+            </label>
+          ))}
+          <button type="submit">{t("contactForm.submit")}</button>
         </form>
       </div>
     </div>
