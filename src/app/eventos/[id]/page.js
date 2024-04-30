@@ -79,7 +79,7 @@ const Post = () => {
                 />
               )}
               <div
-                className={styles.editorContent}
+                className={`${styles.editorContent} ql-editor`}
                 dangerouslySetInnerHTML={{ __html: post.body }}
               />
               <p className={styles.timestamp}>{formatDate(post.timestamp)}</p>{" "}

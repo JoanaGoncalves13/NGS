@@ -9,6 +9,15 @@ import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
+  useEffect(() => {
+    const savedLanguage =
+      typeof window !== "undefined" ? localStorage.getItem("language") : null;
+    if (savedLanguage) {
+      i18n.changeLanguage(savedLanguage);
+      console.log("lang changed");
+      setCurrentLanguage(savedLanguage);
+    }
+  }, [i18n]); // Empty dependency array to run effect only once on component mount
   const [currentLanguage, setCurrentLanguage] = useState("pt"); // New state to track the current language
 
   const [windowWidth, setWindowWidth] = useState(0);
@@ -31,13 +40,16 @@ export default function Navbar() {
 
     // Cleanup function to remove event listener
     return () => window.removeEventListener("resize", handleResize);
-  }, []); // Empty dependency array to run effect only once on component mount
+  }, []);
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
     setCurrentLanguage(language);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("language", language);
+    }
   };
   return (
     <>
@@ -93,7 +105,15 @@ export default function Navbar() {
                   <a href="contactos">
                     <p>{t("navbar.contacts")}</p>
                   </a>
-                  <div style={{display:"flex", alignItems:"center", justifyContent:"center", position:"absolute", right:"20px"}}>
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      position: "absolute",
+                      right: "20px",
+                    }}
+                  >
                     <img
                       onClick={() => changeLanguage("pt")}
                       src={flags.pt.svg}

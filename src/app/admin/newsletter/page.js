@@ -45,9 +45,9 @@ const Newsletter = () => {
       <table>
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Nome</th>
             <th>Email</th>
-            <th>Phone</th>
+            <th>Telemovel</th>
             <th>Direito Civil</th>
             <th>Direito Criminal</th>
             <th>Direito Fiscal</th>

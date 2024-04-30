@@ -142,7 +142,7 @@ const EditPost = ({ post, setEditing }) => {
             borderRadius: "10px",
           }}
         />
-        <h1 className={styles.title}>{post.headline}</h1>
+        <h1 className={styles.title} style={{marginTop:0}}>{post.headline}</h1>
         <a href="/admin/posts">
           <button className={styles.button}>Voltar</button>
         </a>
@@ -170,7 +170,7 @@ const EditPost = ({ post, setEditing }) => {
             <img
               src={coverPhoto}
               alt="Capa do post"
-              style={{ width: "100%", height: "auto" }}
+              style={{ width: "50%", height: "auto" }}
             />
           )}
           {coverPhotoError && (
