@@ -1146,12 +1146,19 @@
   }
   .pagecontactos {
     width: 100%;
+    justify-content: center;
+    height: auto;
+    padding: 10px;
+    gap: 20px;
+    
   }
+
   .lx,
   .norte,
   .lxSede,
   .norteSede {
-    margin-left: 0px;
+    margin-left: 30px;
+    width: 100%;
     font-size: 14px;
   }
   .info1 h1 {
@@ -1160,6 +1167,7 @@
   .footer {
     padding: 50px 0;
   }
+
   .quadrado_texto {
     font-size: 15px;
   }
@@ -1186,6 +1194,7 @@
   .honorarios {
     flex-direction: column;
   }
+  
   .areas {
     flex-direction: column-reverse;
   }
