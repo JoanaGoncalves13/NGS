@@ -93,34 +93,38 @@ export default function Navbar() {
                   <a href="contactos">
                     <p>{t("navbar.contacts")}</p>
                   </a>
-                  <img
-                    onClick={() => changeLanguage("pt")}
-                    src={flags.pt.svg}
-                    alt="Flag"
-                    style={{
-                      width: "20px",
-                      height: "auto",
-                      marginRight: "5px",
-                      marginLeft:"20%"
-                    }}
-                  />
-                  <img
-                    onClick={() => changeLanguage("en")}
-                    src={flags.en.svg}
-                    alt="Flag"
-                    style={{
-                      width: "20px",
-                      height: "auto",
-                      marginRight: "5px",
-                    }}
-                  />
+                  <div style={{display:"flex", alignItems:"center", justifyContent:"center", position:"absolute", right:"20px"}}>
+                    <img
+                      onClick={() => changeLanguage("pt")}
+                      src={flags.pt.svg}
+                      alt="Flag"
+                      style={{
+                        width: "20px",
+                        height: "auto",
+                        marginRight: "5px",
+                      }}
+                    />
+                    <img
+                      onClick={() => changeLanguage("en")}
+                      src={flags.en.svg}
+                      alt="Flag"
+                      style={{
+                        width: "20px",
+                        height: "auto",
+                        marginRight: "5px",
+                      }}
+                    />
+                  </div>
                 </div>
               </header>
             </>
           ) : (
             <>
-              <header className={styles.header}>
-                <nav className={styles.navigation}>
+              <header className={styles.header} style={{ zIndex: 100 }}>
+                <nav
+                  className={styles.navigation}
+                  style={{ position: "fixed" }}
+                >
                   <a
                     href="/"
                     style={{

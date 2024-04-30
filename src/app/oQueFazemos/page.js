@@ -35,7 +35,7 @@ export default function Home() {
           <div className={styles.servicos_texto}>
             <p>{t('what.serviceDescription')}</p>
             <p>{t('what.businessLaw')}</p>
-            <button>{t('what.contactUs')}</button>
+            <button>{t('home.contactUs')}</button>
           </div>
           <div className={styles.areas_imagem}>
             <img
