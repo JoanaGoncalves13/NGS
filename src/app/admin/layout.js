@@ -42,7 +42,7 @@ export default function RootLayout({ children }) {
       );
       router.push("/admin");
     } else {
-      setError("Palavra passe errada");
+      alert("Password errada")
     }
   };
 

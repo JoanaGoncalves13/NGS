@@ -5,11 +5,18 @@ import Image from "next/image";
 import styles from "../page.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
+  const { t, i18n } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState("pt"); // New state to track the current language
+
   const [windowWidth, setWindowWidth] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+  const flags = {
+    pt: { name: "Português", svg: "/flags/portugal.svg" },
+    en: { name: "English", svg: "/flags/uk.svg" },
+  };
   useEffect(() => {
     // Function to update window width when resized
     const handleResize = () => {
@@ -27,6 +34,10 @@ export default function Navbar() {
   }, []); // Empty dependency array to run effect only once on component mount
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+    setCurrentLanguage(language);
   };
   return (
     <>
@@ -68,27 +79,52 @@ export default function Navbar() {
                 </div>
                 <div className={styles.headerTexto}>
                   <a href="quemsomos">
-                    <p>Quem somos</p>
+                    <p>{t("navbar.whoWeAre")}</p>
                   </a>
                   <a href="oquefazemos">
-                    <p>O que fazemos</p>
+                    <p>{t("navbar.whatWeDo")}</p>
                   </a>
                   <a href="publicacoes">
-                    <p>Publicações</p>
+                    <p>{t("navbar.publications")}</p>
                   </a>
                   <a href="eventos">
-                    <p>Eventos</p>
+                    <p>{t("navbar.events")}</p>
                   </a>
                   <a href="contactos">
-                    <p>Contactos</p>
+                    <p>{t("navbar.contacts")}</p>
                   </a>
+                  <div style={{display:"flex", alignItems:"center", justifyContent:"center", position:"absolute", right:"20px"}}>
+                    <img
+                      onClick={() => changeLanguage("pt")}
+                      src={flags.pt.svg}
+                      alt="Flag"
+                      style={{
+                        width: "20px",
+                        height: "auto",
+                        marginRight: "5px",
+                      }}
+                    />
+                    <img
+                      onClick={() => changeLanguage("en")}
+                      src={flags.en.svg}
+                      alt="Flag"
+                      style={{
+                        width: "20px",
+                        height: "auto",
+                        marginRight: "5px",
+                      }}
+                    />
+                  </div>
                 </div>
               </header>
             </>
           ) : (
             <>
-              <header className={styles.header}>
-                <nav className={styles.navigation}>
+              <header className={styles.header} style={{ zIndex: 100 }}>
+                <nav
+                  className={styles.navigation}
+                  style={{ position: "fixed" }}
+                >
                   <a
                     href="/"
                     style={{
@@ -136,20 +172,40 @@ export default function Navbar() {
                   />
 
                   <a href="quemsomos">
-                    <p>Quem somos</p>
+                    <p>{t("navbar.whoWeAre")}</p>
                   </a>
                   <a href="oquefazemos">
-                    <p>O que fazemos</p>
+                    <p>{t("navbar.whatWeDo")}</p>
                   </a>
                   <a href="publicacoes">
-                    <p>Publicações</p>
+                    <p>{t("navbar.publications")}</p>
                   </a>
                   <a href="eventos">
-                    <p>Eventos</p>
+                    <p>{t("navbar.events")}</p>
                   </a>
                   <a href="contactos">
-                    <p>Contactos</p>
+                    <p>{t("navbar.contacts")}</p>
                   </a>
+                  <img
+                    onClick={() => changeLanguage("pt")}
+                    src={flags.pt.svg}
+                    alt="Flag"
+                    style={{
+                      width: "20px",
+                      height: "auto",
+                      marginRight: "5px",
+                    }}
+                  />
+                  <img
+                    onClick={() => changeLanguage("en")}
+                    src={flags.en.svg}
+                    alt="Flag"
+                    style={{
+                      width: "20px",
+                      height: "auto",
+                      marginRight: "5px",
+                    }}
+                  />
                 </div>
               )}
             </>

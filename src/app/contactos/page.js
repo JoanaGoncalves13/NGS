@@ -1,50 +1,55 @@
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 import Head from "next/head";
 import styles from "../page.module.css";
 import Navbar from "../components/Navbar";
 import ContactForm from "../components/contact.form";
+import { useTranslation } from "react-i18next";
 
 export default function Home() {
+  const { t } = useTranslation();
+
   return (
     <div>
       <Navbar />
 
       <main className={styles.main}>
         <div className={styles.pagecontactos}>
-          <h1>Contactos</h1>
+          <h1>{t("contactForm.title")}</h1>
           <div className={styles.pagecontactos_locais}>
             <div className={styles.lxSede}>
-              <h1>Sede (Lisboa)</h1>
+              <h1>{t("home.headquartersTitle")}</h1>
               <div className={styles.infolocalSede}>
-                <p>Estrada de Benfica, 447 - 1º Dtº, 1500-080 Lisboa</p>
+                <p>{t("home.headquartersAddress")}</p>
                 <div className={styles.letrasCores}>
-                  <p className={styles.red2}>Tel.</p>
+                  <p className={styles.red2}>{t("home.telephone")}</p>
                   <p>+351 21 778 85 76</p>
                 </div>
                 <div className={styles.letrasCoresSede}>
-                  <p className={styles.red2}>Fax </p>
+                  <p className={styles.red2}>{t("home.fax")} </p>
                   <p>+351 21 778 12 05</p>
                 </div>
                 <div className={styles.letrasCores}>
-                  <p className={styles.red2}>Tlm. </p>
+                  <p className={styles.red2}>{t("home.mobile")} </p>
                   <p>+351 96 405 14 54 (24 horas)</p>
                 </div>
                 <div className={styles.letrasCores}>
-                  <p className={styles.red2}>E-mail</p>
+                  <p className={styles.red2}>{t('home.email')}</p>
                   <p>geral.lisboa@ngsadvogados.com</p>
                 </div>
               </div>
             </div>
             <div className={styles.norteSede}>
-              <h1>Delegação Norte</h1>
+              <h1>{t('home.northBranchTitle')}e</h1>
               <div className={styles.infolocalSede}>
-                <p>Largo da Porta Nova 39 - 1º, 4750-329 Barcelos</p>
+                <p>{t('home.northBranchAddress')}</p>
                 <div className={styles.letrasCores}>
-                  <p className={styles.red2}>Tel. </p>
+                  <p className={styles.red2}>{t('home.telephone')} </p>
                   <p>+351 25 314 96 16</p>
                 </div>
                 <div className={styles.letrasCores}>
-                  <p className={styles.red2}>Fax </p>
+                  <p className={styles.red2}>{t('home.fax')} </p>
                   <p>+351 25 314 96 18</p>
                 </div>
 

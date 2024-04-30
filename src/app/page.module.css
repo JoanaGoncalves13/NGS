@@ -157,9 +157,14 @@
   flex-direction: column;
   height: 100%;
   width: 70%;
-  height: 40%;
+  height: 100%;
   color: black;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 5% 2%;
 }
 
 .info1 h1 {
@@ -175,7 +180,7 @@
 
 .button1 {
   width: 25%;
-  margin-top: 10%;
+  margin-top: 5%;
   height: 20%;
   margin-left: 5%;
   background-color: #880e05;
@@ -183,11 +188,12 @@
   border: none;
   transition: background-color 0.3s ease;
   color: white;
+  padding: 10px;
 }
 
 .button2 {
   width: 25%;
-  margin-top: 10%;
+  margin-top: 5%;
   height: 20%;
   margin-left: 5%;
   color: #880e05;
@@ -196,6 +202,8 @@
   border-color: #880e05; /* Define a cor do border */
   border-style: solid; /* Define o estilo do border como sólido */
   transition: background-color 0.3s ease;
+  padding: 10px;
+
 }
 
 .info1 button:hover {
@@ -207,9 +215,14 @@
   height: 100%;
   width: 70%;
   color: black;
-  height: 40%;
+  height: 100%;
   background-color: #edd3d179;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 5% 2%;
 }
 
 .contactos {
@@ -427,6 +440,7 @@
   flex-direction: row;
   width: 65%;
   height: auto;
+  margin: 50px 0px;
 }
 
 .sociedade_imagem {
@@ -508,6 +522,7 @@
   flex-direction: row;
   width: 65%;
   height: 700px;
+  margin: 50px 0px;
 }
 
 .servicos_imagem {
@@ -711,7 +726,7 @@
 
 .subscricoes_areas {
   width: 25%;
-  height: auto;
+  height: 100%;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -725,8 +740,8 @@
   color: white;
   font-size: 20px;
   font-weight: 200;
-  margin-bottom: 7%;
-  margin-right: 25px;
+  margin-bottom: 0%;
+  margin-right: 0px;
   margin-top: 0%;
 }
 
@@ -741,9 +756,9 @@
   color: white;
   font-size: 20px;
   font-weight: 100;
-  height: 15%;
-  width: 40%;
+  height: auto;
   margin-top: 5%;
+  padding: 10px;
 
   transition: background-color 0.3s ease; /* Adiciona uma transição suave na mudança de cor de fundo */
 }
@@ -869,11 +884,14 @@
   width: 27%;
   height: 100%;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   margin-right: 2%;
+  padding: 2%;
   display: flex;
 }
-
+.quadradoImagem img{
+  border-radius: 10px;
+}
 .buttonRed {
   background-color: #880e05;
   color: white;
@@ -988,7 +1006,7 @@
   .informacoes {
     flex-direction: column;
     gap: 20px;
-    height: 100vh;
+    height: auto;
     margin-top: 50px;
     margin-bottom: 50px;
   }
@@ -1136,14 +1154,10 @@
   }
   .quadradovermelho_info,
   .quadradotransparente_info {
-    height: 40%;
 
     width: 100%;
   }
-  .button1,
-  .button2 {
-    margin-top: 15%;
-  }
+
   .pagecontactos {
     width: 100%;
     justify-content: center;
@@ -1272,7 +1286,7 @@
 }
 
 .container h1 {
-  margin-top: 0%;
+  margin-top: 3%;
 }
 
 .headerPost {
@@ -1438,7 +1452,7 @@
 
 .postIndividual {
   box-shadow: 0px 0px 1px #507ab4;
-  max-width: 90%;
+  width: 90%;
   margin: 20px auto;
   padding: 20px;
   border: 1px solid white;
@@ -1687,7 +1701,7 @@
 }
 
 .error_message {
-  color: rgb(7, 4, 4);
+  color: rgb(255, 0, 0);
 }
 
 .quill_container {

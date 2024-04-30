@@ -2,10 +2,13 @@
 import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../../../firebase";
+import { useTranslation } from "react-i18next";
 
 import styles from "../../page.module.css";
 
 const Newsletter = () => {
+  const { t } = useTranslation();
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -71,11 +74,8 @@ const Newsletter = () => {
     <div className={styles.subscricoes}>
       <div className={styles.subscricoes_subs}>
         <div className={styles.subscricoes_texto}>
-          <h1>Subscreva a nossa Newsletter</h1>
-          <p>
-            E fique a par das nossas publicações acerca das suas áreas de
-            interesse.
-          </p>
+          <h1>{t("newsletter.subscribeTitle")}</h1>
+          <p>{t("newsletter.subscribeText")}</p>
         </div>
         <div className={styles.subscricoes_info}>
           <form onSubmit={handleFormSubmit}>
@@ -86,7 +86,7 @@ const Newsletter = () => {
               value={formData.name}
               onChange={handleInputChange}
               required
-              placeholder="Nome "
+              placeholder={t("newsletter.namePlaceholder")}
             />
 
             <input
@@ -96,7 +96,7 @@ const Newsletter = () => {
               value={formData.phone}
               onChange={handleInputChange}
               required
-              placeholder="Telefone"
+              placeholder={t("newsletter.phonePlaceholder")}
             />
 
             <input
@@ -106,13 +106,13 @@ const Newsletter = () => {
               value={formData.email}
               onChange={handleInputChange}
               required
-              placeholder="Email "
+              placeholder={t("newsletter.emailPlaceholder")}
             />
           </form>
         </div>
       </div>
       <div className={styles.subscricoes_areas}>
-        <h1>Áreas interesses</h1>
+        <h1>{t("newsletter.interestAreasTitle")}</h1>
         <div className={styles.form}>
           <label>
             <input
@@ -121,7 +121,7 @@ const Newsletter = () => {
               checked={formData.interests.includes("Direito Civil")}
               onChange={handleCheckboxChange}
             />
-            Direito Civil
+            {t("newsletter.civilLaw")}
           </label>
           <br />
           <label>
@@ -131,7 +131,7 @@ const Newsletter = () => {
               checked={formData.interests.includes("Direito Criminal")}
               onChange={handleCheckboxChange}
             />
-            Direito Criminal
+            {t("newsletter.criminalLaw")}
           </label>
           <br />
           <label>
@@ -141,7 +141,7 @@ const Newsletter = () => {
               checked={formData.interests.includes("Direito Fiscal")}
               onChange={handleCheckboxChange}
             />
-            Direito Fiscal
+            {t("newsletter.taxLaw")}
           </label>
           <br />
           <label>
@@ -151,10 +151,12 @@ const Newsletter = () => {
               checked={formData.interests.includes("Direito Comercial")}
               onChange={handleCheckboxChange}
             />
-            Direito Comercial
+            {t("newsletter.commercialLaw")}
           </label>
           <br />
-          <button onClick={handleFormSubmit} type="submit">Submeter</button>
+          <button onClick={handleFormSubmit} type="submit">
+            {t("newsletter.submit")}
+          </button>
         </div>
       </div>
     </div>

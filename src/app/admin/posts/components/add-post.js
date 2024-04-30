@@ -151,7 +151,7 @@ const AddPost = ({ addingPost, setAddingPost }) => {
               className="input-field"
               placeholder="Introduza o título"
             />
-            {headlineError && <p className="error-message">{headlineError}</p>}
+            {headlineError && <p className={styles.error_message}>{headlineError}</p>}
           </div>
 
           <div>
@@ -176,7 +176,7 @@ const AddPost = ({ addingPost, setAddingPost }) => {
             placeholder="Conteúdo"
           />
           {editorHtmlError && (
-            <p className="error-message">{editorHtmlError}</p>
+            <p className={styles.error_message}>{editorHtmlError}</p>
           )}
           <button className={styles.buttonPub} onClick={handlePost}>
             Publicar
