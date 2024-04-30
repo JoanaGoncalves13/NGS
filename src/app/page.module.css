@@ -157,9 +157,14 @@
   flex-direction: column;
   height: 100%;
   width: 70%;
-  height: 40%;
+  height: 100%;
   color: black;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 5% 2%;
 }
 
 .info1 h1 {
@@ -175,7 +180,7 @@
 
 .button1 {
   width: 25%;
-  margin-top: 10%;
+  margin-top: 5%;
   height: 20%;
   margin-left: 5%;
   background-color: #880e05;
@@ -183,11 +188,12 @@
   border: none;
   transition: background-color 0.3s ease;
   color: white;
+  padding: 10px;
 }
 
 .button2 {
   width: 25%;
-  margin-top: 10%;
+  margin-top: 5%;
   height: 20%;
   margin-left: 5%;
   color: #880e05;
@@ -196,6 +202,8 @@
   border-color: #880e05; /* Define a cor do border */
   border-style: solid; /* Define o estilo do border como sólido */
   transition: background-color 0.3s ease;
+  padding: 10px;
+
 }
 
 .info1 button:hover {
@@ -207,9 +215,14 @@
   height: 100%;
   width: 70%;
   color: black;
-  height: 40%;
+  height: 100%;
   background-color: #edd3d179;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 5% 2%;
 }
 
 .contactos {
@@ -993,7 +1006,7 @@
   .informacoes {
     flex-direction: column;
     gap: 20px;
-    height: 100vh;
+    height: auto;
     margin-top: 50px;
     margin-bottom: 50px;
   }
@@ -1144,10 +1157,7 @@
 
     width: 100%;
   }
-  .button1,
-  .button2 {
-    margin-top: 15%;
-  }
+
   .pagecontactos {
     width: 100%;
   }
