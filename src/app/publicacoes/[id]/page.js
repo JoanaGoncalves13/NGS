@@ -6,10 +6,10 @@ import { db } from "../../../../firebase";
 import { formatDate } from "@/utils";
 import styles from "../../page.module.css";
 import Image from "next/image";
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/context/LanguageContext";
 
 const Post = () => {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const { id } = useParams();
   const router = useRouter();
   const [post, setPost] = useState(null);
@@ -56,7 +56,7 @@ const Post = () => {
           className={styles.button}
           onClick={() => router.push("/publicacoes")}
         >
-          {t('back')}
+          {t("back")}
         </button>
       </div>
       <div className={styles.postIndividual}>
