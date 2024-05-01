@@ -3,12 +3,12 @@
 import React, { useState } from "react";
 import styles from "../page.module.css";
 import Navbar from "../components/Navbar";
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/context/LanguageContext";
 
 import BlogPosts from "./components/blog-posts";
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
 
   const [posts, setPosts] = useState([]);
   const [addingPost, setAddingPost] = useState(false);

@@ -5,10 +5,10 @@ import styles from "../page.module.css";
 import Navbar from "../components/Navbar";
 import ContactForm from "../components/contact.form";
 import { useRouter } from "next/navigation";
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const router = useRouter();
 
   const Contacto = () => {

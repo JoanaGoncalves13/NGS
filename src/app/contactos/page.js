@@ -5,10 +5,10 @@ import Head from "next/head";
 import styles from "../page.module.css";
 import Navbar from "../components/Navbar";
 import ContactForm from "../components/contact.form";
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
 
   return (
     <div>
@@ -35,21 +35,21 @@ export default function Home() {
                   <p>+351 96 405 14 54 (24 horas)</p>
                 </div>
                 <div className={styles.letrasCores}>
-                  <p className={styles.red2}>{t('home.email')}</p>
+                  <p className={styles.red2}>{t("home.email")}</p>
                   <p>geral.lisboa@ngsadvogados.com</p>
                 </div>
               </div>
             </div>
             <div className={styles.norteSede}>
-              <h1>{t('home.northBranchTitle')}</h1>
+              <h1>{t("home.northBranchTitle")}</h1>
               <div className={styles.infolocalSede}>
-                <p>{t('home.northBranchAddress')}</p>
+                <p>{t("home.northBranchAddress")}</p>
                 <div className={styles.letrasCores}>
-                  <p className={styles.red2}>{t('home.telephone')} </p>
+                  <p className={styles.red2}>{t("home.telephone")} </p>
                   <p>+351 25 314 96 16</p>
                 </div>
                 <div className={styles.letrasCores}>
-                  <p className={styles.red2}>{t('home.fax')} </p>
+                  <p className={styles.red2}>{t("home.fax")} </p>
                   <p>+351 25 314 96 18</p>
                 </div>
 

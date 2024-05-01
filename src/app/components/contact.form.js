@@ -1,10 +1,10 @@
 "use client";
 import React, { useState } from "react";
 import styles from "../page.module.css";
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/context/LanguageContext";
 
 const ContactForm = () => {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const [interests, setInterests] = useState([]);
 
   async function sendEmails(formData) {
