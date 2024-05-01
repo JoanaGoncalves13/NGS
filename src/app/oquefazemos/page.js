@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react";
 import styles from '../page.module.css';
 import Navbar from '../components/Navbar';
 import ContactForm from '../components/contact.form';
-import { useTranslation } from 'react-i18next';
+import { useLanguage } from "@/context/LanguageContext";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const router = useRouter();
 
   const navigate = (path) => {

@@ -5,10 +5,10 @@ import { useRouter } from "next/navigation";
 import { formatDate } from "@/utils";
 import styles from "../../page.module.css";
 import Newsletter from "./newsletter";
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/context/LanguageContext";
 
 const BlogPosts = ({ posts, setPosts, addingPost, search }) => {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
 
   const router = useRouter();
   const [filteredPosts, setFilteredPosts] = useState([]);
@@ -55,7 +55,7 @@ const BlogPosts = ({ posts, setPosts, addingPost, search }) => {
   return (
     <>
       <div className={styles.publicacoes}>
-      <h1>{t('blogPosts.title')}</h1>
+        <h1>{t("blogPosts.title")}</h1>
         <Newsletter />
       </div>
       {filteredPosts.map((post, index) => (
@@ -66,10 +66,7 @@ const BlogPosts = ({ posts, setPosts, addingPost, search }) => {
           onClick={() => router.push(`/publicacoes/${post.id}`)}
         >
           <div className={styles.quadradoImagem}>
-            <img
-              src={post.coverPhoto}
-              alt="logoPequeno"
-            />
+            <img src={post.coverPhoto} alt="logoPequeno" />
           </div>
           <div className={styles.quadradotexto}>
             <div className={styles.post}>
@@ -77,7 +74,9 @@ const BlogPosts = ({ posts, setPosts, addingPost, search }) => {
                 <h1 style={{ color: "black" }}>{post.headline}</h1>
                 <p>{formatDate(post.timestamp)}</p>
               </div>
-              <button className={styles.buttonRed}>{t('blogPosts.viewMore')}</button>
+              <button className={styles.buttonRed}>
+                {t("blogPosts.viewMore")}
+              </button>
             </div>
             <div className={styles.conteudo}>
               <div

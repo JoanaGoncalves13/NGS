@@ -2,12 +2,12 @@
 import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../../../firebase";
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/context/LanguageContext";
 
 import styles from "../../page.module.css";
 
 const Newsletter = () => {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
 
   const [formData, setFormData] = useState({
     name: "",

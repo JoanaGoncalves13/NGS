@@ -5,23 +5,13 @@ import Image from "next/image";
 import styles from "../page.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { useTranslation } from "react-i18next";
 import { useRouter } from "next/navigation";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Navbar() {
-  const { t, i18n } = useTranslation();
-  const [currentLanguage, setCurrentLanguage] = useState("pt");
-  const router = useRouter();
+  const { language, setLanguage, t } = useLanguage();
 
-  useEffect(() => {
-    const savedLanguage =
-      typeof window !== "undefined" ? localStorage.getItem("language") : null;
-    if (savedLanguage) {
-      i18n.changeLanguage(savedLanguage);
-      console.log("lang changed");
-      setCurrentLanguage(savedLanguage);
-    }
-  }, [i18n]);
+  const router = useRouter();
 
   const [windowWidth, setWindowWidth] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -43,13 +33,13 @@ export default function Navbar() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  const changeLanguage = (lang) => {
+    setLanguage(lang);
+  };
 
-  const changeLanguage = (language) => {
-    i18n.changeLanguage(language);
-    setCurrentLanguage(language);
-    if (typeof window !== "undefined") {
-      localStorage.setItem("language", language);
-    }
+  const handleMenuClick = (path) => {
+    router.push(path);
+    setIsMenuOpen(false);
   };
 
   const navigate = (path) => {
@@ -59,7 +49,7 @@ export default function Navbar() {
   return (
     <>
       <Head>
-        <title>NGS | Leão e Associados</title>
+        <title>NGS | Leão e Associados {language}</title>
         <meta
           name="description"
           content="NGS Leão e Associados, Sociedade de Advogados, SP, RL."
@@ -72,7 +62,7 @@ export default function Navbar() {
               <header className={styles.header}>
                 <div className={styles.headerImagem}>
                   <a
-                    onClick={() => navigate("/")}
+                    onClick={() => handleMenuClick("/")}
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -95,19 +85,19 @@ export default function Navbar() {
                   </a>
                 </div>
                 <div className={styles.headerTexto}>
-                  <a onClick={() => navigate("/quemsomos")}>
+                  <a onClick={() => handleMenuClick("/quemsomos")}>
                     <p>{t("navbar.whoWeAre")}</p>
                   </a>
-                  <a onClick={() => navigate("/oquefazemos")}>
+                  <a onClick={() => handleMenuClick("/oquefazemos")}>
                     <p>{t("navbar.whatWeDo")}</p>
                   </a>
-                  <a onClick={() => navigate("/publicacoes")}>
+                  <a onClick={() => handleMenuClick("/publicacoes")}>
                     <p>{t("navbar.publications")}</p>
                   </a>
-                  <a onClick={() => navigate("/eventos")}>
+                  <a onClick={() => handleMenuClick("/eventos")}>
                     <p>{t("navbar.events")}</p>
                   </a>
-                  <a onClick={() => navigate("/contactos")}>
+                  <a onClick={() => handleMenuClick("/contactos")}>
                     <p>{t("navbar.contacts")}</p>
                   </a>
                   <div
@@ -195,19 +185,19 @@ export default function Navbar() {
                     onClick={toggleMenu}
                   />
 
-                  <a onClick={() => navigate("/quemsomos")}>
+                  <a onClick={() => handleMenuClick("/quemsomos")}>
                     <p>{t("navbar.whoWeAre")}</p>
                   </a>
-                  <a onClick={() => navigate("/oquefazemos")}>
+                  <a onClick={() => handleMenuClick("/oquefazmos")}>
                     <p>{t("navbar.whatWeDo")}</p>
                   </a>
-                  <a onClick={() => navigate("/publicacoes")}>
+                  <a onClick={() => handleMenuClick("/publicacoes")}>
                     <p>{t("navbar.publications")}</p>
                   </a>
-                  <a onClick={() => navigate("/eventos")}>
+                  <a onClick={() => handleMenuClick("/eventos")}>
                     <p>{t("navbar.events")}</p>
                   </a>
-                  <a onClick={() => navigate("/contactos")}>
+                  <a onClick={() => handleMenuClick("/contactos")}>
                     <p>{t("navbar.contacts")}</p>
                   </a>
                   <img

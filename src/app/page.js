@@ -1,15 +1,16 @@
 "use client";
-import Image from "next/image";
-import Head from "next/head";
+
 import styles from "./page.module.css";
 import Navbar from "./components/Navbar";
 import ContactForm from "./components/contact.form";
 import { useRouter } from "next/navigation";
-import { useTranslation } from "react-i18next";
+
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function Home() {
-  const { t, i18n } = useTranslation();
   const router = useRouter();
+
+  const { t } = useLanguage();
 
   const QuemSomos = () => {
     router.push("/quemsomos");
