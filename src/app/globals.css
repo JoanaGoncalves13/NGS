@@ -93,6 +93,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
 }
 input[type="checkbox"]{
   accent-color: white;

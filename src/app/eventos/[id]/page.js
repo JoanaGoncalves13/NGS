@@ -6,10 +6,12 @@ import { db } from "../../../../firebase";
 import EditPost from "./components/edit-post";
 import styles from "../../page.module.css";
 import { formatDate } from "@/utils";
+import { useTranslation } from "react-i18next";
 
 import Image from "next/image";
 
 const Post = () => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const router = useRouter();
   const [post, setPost] = useState(null);
@@ -66,8 +68,8 @@ const Post = () => {
               <h1 className={styles.title} style={{ marginTop: "0%" }}>
                 {post.headline}
               </h1>
-              <a href="/eventos">
-                <button className={styles.button}>Voltar</button>
+              <a onClick={() => router.push("/eventos")}>
+                <button className={styles.button}>{t("back")}</button>
               </a>
             </div>
             <div className={styles.postIndividual}>

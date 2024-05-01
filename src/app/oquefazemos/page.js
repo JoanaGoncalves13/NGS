@@ -1,12 +1,19 @@
 "use client"
-import styles from "../page.module.css";
-import Navbar from "../components/Navbar";
-import ContactForm from "../components/contact.form";
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
+
+import React, { useState, useEffect } from "react";
+import styles from '../page.module.css';
+import Navbar from '../components/Navbar';
+import ContactForm from '../components/contact.form';
+import { useTranslation } from 'react-i18next';
+import { useRouter } from "next/navigation";
 
 export default function Home() {
   const { t } = useTranslation();
+  const router = useRouter();
+
+  const navigate = (path) => {
+    router.push(path);
+  };
 
   return (
     <div>
@@ -14,14 +21,14 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.imageInicial2}>
           <img
-            src={"/biblioteca.jpg"}
+            src="/biblioteca.jpg"
             width={6000}
             height={7828}
             alt="logo"
             style={{
-              height: "100%",
-              width: "100%",
-              objectFit: "cover",
+              height: '100%',
+              width: '100%',
+              objectFit: 'cover',
             }}
           />
           <div className={styles.quadrado}>
@@ -35,19 +42,19 @@ export default function Home() {
           <div className={styles.servicos_texto}>
             <p>{t('what.serviceDescription')}</p>
             <p>{t('what.businessLaw')}</p>
-            <button>{t('home.contactUs')}</button>
+            <button onClick={() => navigate('/contact')}>{t('home.contactUs')}</button>
           </div>
           <div className={styles.areas_imagem}>
             <img
-              src={"/maos.jpg"}
+              src="/maos.jpg"
               width={7000}
               height={7828}
               alt="logo"
               style={{
-                height: "100%",
-                width: "100%",
-                objectFit: "cover",
-                borderRadius: "10px",
+                height: '100%',
+                width: '100%',
+                objectFit: 'cover',
+                borderRadius: '10px',
               }}
             />
           </div>
@@ -56,15 +63,15 @@ export default function Home() {
         <div className={styles.areas}>
           <div className={styles.areas_imagem}>
             <img
-              src={"/assin.jpg"}
+              src="/assin.jpg"
               width={7000}
               height={7828}
               alt="logo"
               style={{
-                height: "100%",
-                width: "100%",
-                objectFit: "cover",
-                borderRadius: "10px",
+                height: '100%',
+                width: '100%',
+                objectFit: 'cover',
+                borderRadius: '10px',
               }}
             />
           </div>
@@ -84,15 +91,15 @@ export default function Home() {
           </div>
           <div className={styles.honorarios_imagem}>
             <img
-              src={"/books.jpg"}
+              src="/books.jpg"
               width={7000}
               height={7828}
               alt="books"
               style={{
-                height: "100%",
-                width: "100%",
-                objectFit: "cover",
-                borderRadius: "10px",
+                height: '100%',
+                width: '100%',
+                objectFit: 'cover',
+                borderRadius: '10px',
               }}
             />
           </div>

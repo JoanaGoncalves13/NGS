@@ -6,8 +6,10 @@ import { db } from "../../../../firebase";
 import { formatDate } from "@/utils";
 import styles from "../../page.module.css";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 
 const Post = () => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const router = useRouter();
   const [post, setPost] = useState(null);
@@ -54,7 +56,7 @@ const Post = () => {
           className={styles.button}
           onClick={() => router.push("/publicacoes")}
         >
-          Voltar
+          {t('back')}
         </button>
       </div>
       <div className={styles.postIndividual}>
@@ -70,7 +72,7 @@ const Post = () => {
           className={`${styles.editorContent} ql-editor`}
           dangerouslySetInnerHTML={{ __html: post.body }}
         />
-        <p className={styles.timestamp}>{formatDate(post.timestamp)}</p>{" "}
+        <p className={styles.timestamp}>{formatDate(post.timestamp)}</p>
       </div>
     </div>
   );

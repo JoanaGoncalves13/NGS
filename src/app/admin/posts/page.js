@@ -28,7 +28,7 @@ const Posts = () => {
             borderRadius: "10px",
           }}
         />
-        <a href="/admin">
+        <a onClick={() => router.push("/admin")}>
           <button className={styles.button}>Voltar</button>
         </a>
       </div>

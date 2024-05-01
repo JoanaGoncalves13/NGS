@@ -1157,6 +1157,14 @@
   .assin p {
     font-size: 11px;
   }
+  .quadradoImagem{
+    width: 100%;
+    padding: 0;
+    margin-right: 0;
+  }
+  .quadradoImagem img{
+    max-width: 100%;
+  }
 }
 @media (max-width: 610px) {
   .quadradoInicial {
@@ -1243,6 +1251,7 @@
     margin: 15% 0% 0% 0%;
     font-size: 40px;
   }
+
 }
 @media (max-width: 350px) {
   .navigation {

@@ -23,7 +23,7 @@ const AdminPage = () => {
           }}
         />
 
-        <a href="/">
+        <a onClick={() => router.push("/")}>
           <button className={styles.button}>Site</button>
         </a>
       </div>

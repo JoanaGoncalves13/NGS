@@ -65,7 +65,7 @@ const Post = () => {
               <h1 className={styles.title} style={{ marginTop: "0%" }}>
                 {post.headline}
               </h1>
-              <a href="/admin/posts">
+              <a onClick={() => router.push("/admin/posts")}>
                 <button className={styles.button}>Voltar</button>
               </a>
             </div>

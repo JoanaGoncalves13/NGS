@@ -142,8 +142,10 @@ const EditPost = ({ post, setEditing }) => {
             borderRadius: "10px",
           }}
         />
-        <h1 className={styles.title} style={{marginTop:0}}>{post.headline}</h1>
-        <a href="/admin/posts">
+        <h1 className={styles.title} style={{ marginTop: 0 }}>
+          {post.headline}
+        </h1>
+        <a onClick={() => router.push("/admin/posts")}>
           <button className={styles.button}>Voltar</button>
         </a>
       </div>

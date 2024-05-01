@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
@@ -6,10 +6,13 @@ import styles from "../page.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "react-i18next";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
-  const [currentLanguage, setCurrentLanguage] = useState("pt"); // New state to track the current language
+  const [currentLanguage, setCurrentLanguage] = useState("pt");
+  const router = useRouter();
+
   useEffect(() => {
     const savedLanguage =
       typeof window !== "undefined" ? localStorage.getItem("language") : null;
@@ -18,7 +21,7 @@ export default function Navbar() {
       console.log("lang changed");
       setCurrentLanguage(savedLanguage);
     }
-  }, [i18n]); // Empty dependency array to run effect only once on component mount
+  }, [i18n]);
 
   const [windowWidth, setWindowWidth] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,24 +29,21 @@ export default function Navbar() {
     pt: { name: "Português", svg: "/flags/portugal.svg" },
     en: { name: "English", svg: "/flags/uk.svg" },
   };
+
   useEffect(() => {
-    // Function to update window width when resized
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
     };
 
-    // Initial window width
     setWindowWidth(window.innerWidth);
-
-    // Event listener for window resize
     window.addEventListener("resize", handleResize);
-
-    // Cleanup function to remove event listener
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
     setCurrentLanguage(language);
@@ -51,6 +51,11 @@ export default function Navbar() {
       localStorage.setItem("language", language);
     }
   };
+
+  const navigate = (path) => {
+    router.push(path);
+  };
+
   return (
     <>
       <Head>
@@ -67,7 +72,7 @@ export default function Navbar() {
               <header className={styles.header}>
                 <div className={styles.headerImagem}>
                   <a
-                    href="/"
+                    onClick={() => navigate("/")}
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -76,7 +81,7 @@ export default function Navbar() {
                   >
                     <Image
                       src="/logoNGSpequeno.png"
-                      alt="Logo da Clínica Veterinária"
+                      alt="Logo"
                       loading="lazy"
                       width={130}
                       height={70}
@@ -90,19 +95,19 @@ export default function Navbar() {
                   </a>
                 </div>
                 <div className={styles.headerTexto}>
-                  <a href="quemsomos">
+                  <a onClick={() => navigate("/quemsomos")}>
                     <p>{t("navbar.whoWeAre")}</p>
                   </a>
-                  <a href="oquefazemos">
+                  <a onClick={() => navigate("/oquefazemos")}>
                     <p>{t("navbar.whatWeDo")}</p>
                   </a>
-                  <a href="publicacoes">
+                  <a onClick={() => navigate("/publicacoes")}>
                     <p>{t("navbar.publications")}</p>
                   </a>
-                  <a href="eventos">
+                  <a onClick={() => navigate("/eventos")}>
                     <p>{t("navbar.events")}</p>
                   </a>
-                  <a href="contactos">
+                  <a onClick={() => navigate("/contactos")}>
                     <p>{t("navbar.contacts")}</p>
                   </a>
                   <div
@@ -146,7 +151,7 @@ export default function Navbar() {
                   style={{ position: "fixed" }}
                 >
                   <a
-                    href="/"
+                    onClick={() => navigate("/")}
                     style={{
                       display: "flex",
                       alignItems: "center",
@@ -155,7 +160,7 @@ export default function Navbar() {
                   >
                     <Image
                       src="/NGS_logoBranco.png"
-                      alt="Logo da Clínica Veterinária"
+                      alt="Logo"
                       width={130}
                       height={70}
                       style={{
@@ -172,10 +177,10 @@ export default function Navbar() {
               </header>
               {isMenuOpen && (
                 <div className={styles.mobileMenu}>
-                  <a className={styles.logoMenu} href="/">
+                  <a className={styles.logoMenu} onClick={() => navigate("/")}>
                     <Image
                       src="/logoNGSpequeno.png"
-                      alt="Logo da Clínica Veterinária"
+                      alt="Logo"
                       width={130}
                       height={70}
                       style={{
@@ -190,19 +195,19 @@ export default function Navbar() {
                     onClick={toggleMenu}
                   />
 
-                  <a href="quemsomos">
+                  <a onClick={() => navigate("/quemsomos")}>
                     <p>{t("navbar.whoWeAre")}</p>
                   </a>
-                  <a href="oquefazemos">
+                  <a onClick={() => navigate("/oquefazemos")}>
                     <p>{t("navbar.whatWeDo")}</p>
                   </a>
-                  <a href="publicacoes">
+                  <a onClick={() => navigate("/publicacoes")}>
                     <p>{t("navbar.publications")}</p>
                   </a>
-                  <a href="eventos">
+                  <a onClick={() => navigate("/eventos")}>
                     <p>{t("navbar.events")}</p>
                   </a>
-                  <a href="contactos">
+                  <a onClick={() => navigate("/contactos")}>
                     <p>{t("navbar.contacts")}</p>
                   </a>
                   <img

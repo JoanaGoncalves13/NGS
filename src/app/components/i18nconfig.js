@@ -125,6 +125,7 @@ i18n.use(initReactI18next).init({
           subscriptionSuccess: "Subscrição efetuada com sucesso!",
         },
         eventsTitle: "Eventos",
+        back:"Voltar"
       },
     },
     en: {
@@ -249,6 +250,7 @@ i18n.use(initReactI18next).init({
           subscriptionSuccess: "Subscription successful!",
         },
         eventsTitle: "Events",
+        back:"Back"
       },
     },
     es: {

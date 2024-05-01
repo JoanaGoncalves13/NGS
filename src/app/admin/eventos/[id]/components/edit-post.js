@@ -143,7 +143,8 @@ const EditPost = ({ post, setEditing }) => {
           }}
         />
         <h1 className={styles.title}>{post.headline}</h1>
-        <a href="/admin/eventos">
+        <a           onClick={() => router.push("/admin/eventos")}
+>
           <button className={styles.button}>Voltar</button>
         </a>
       </div>
