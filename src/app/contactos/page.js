@@ -41,7 +41,7 @@ export default function Home() {
               </div>
             </div>
             <div className={styles.norteSede}>
-              <h1>{t('home.northBranchTitle')}e</h1>
+              <h1>{t('home.northBranchTitle')}</h1>
               <div className={styles.infolocalSede}>
                 <p>{t('home.northBranchAddress')}</p>
                 <div className={styles.letrasCores}>
