@@ -15,8 +15,8 @@ export default function RootLayout({ children }) {
   const password = "ngs";
 
   useEffect(() => {
-    /* const storedPermission = localStorage.getItem("Permission");
-    const expirationTime = localStorage.getItem("PermissionExpiration"); */
+    const storedPermission = localStorage.getItem("Permission");
+    const expirationTime = localStorage.getItem("PermissionExpiration");
 
     if (
       storedPermission === "true" &&
@@ -35,11 +35,11 @@ export default function RootLayout({ children }) {
   const handleButtonClick = () => {
     if (inputValue === password) {
       setHasPermission(true);
-      /* localStorage.setItem("Permission", "true");
+      localStorage.setItem("Permission", "true");
       localStorage.setItem(
         "PermissionExpiration",
         String(new Date().getTime() + 3600000) // 1 hour in milliseconds
-      ); */
+      );
       router.push("/admin");
     } else {
       alert("Password errada");
