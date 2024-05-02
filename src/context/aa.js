@@ -1,3 +1,5 @@
+// LanguageContext.js
+
 import React, { createContext, useState, useContext, useEffect } from "react";
 import enTranslations from "../locales/en.json";
 import ptTranslations from "../locales/pt.json";
@@ -17,7 +19,6 @@ const getValueByNestedKey = (object, keys) => {
 
 export const LanguageProvider = ({ children }) => {
   const [language, setLanguageState] = useState("");
-  const [isLoading, setIsLoading] = useState(true); // Loading state
 
   const setLanguage = (lang) => {
     localStorage.setItem(localStorageKey, lang);
@@ -26,19 +27,13 @@ export const LanguageProvider = ({ children }) => {
 
   const t = (key) => getValueByNestedKey(translations[language], key);
 
+  // Ensure localStorage is in sync with the language state
   useEffect(() => {
     const storedLanguage = localStorage.getItem(localStorageKey);
     if (storedLanguage !== language) {
       setLanguage(storedLanguage || "en");
     }
-    // Once language is set, loading is done
-    setIsLoading(false);
   }, [language]);
-
-  // Return loading state while language is not set
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>

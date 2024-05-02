@@ -7,10 +7,12 @@ import ContactForm from "../components/contact.form";
 import styles from "../page.module.css";
 
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, loading } = useLanguage();
   const [posts, setPosts] = useState([]);
   const [addingPost, setAddingPost] = useState(false);
   const search = "";
+
+  if (loading) return;
 
   return (
     <div>

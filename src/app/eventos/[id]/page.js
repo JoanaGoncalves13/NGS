@@ -6,12 +6,12 @@ import { db } from "../../../../firebase";
 import EditPost from "./components/edit-post";
 import styles from "../../page.module.css";
 import { formatDate } from "@/utils";
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "@/context/LanguageContext";
 
 import Image from "next/image";
 
 const Post = () => {
-  const { t } = useTranslation();
+  const { t } = useLanguage();
   const { id } = useParams();
   const router = useRouter();
   const [post, setPost] = useState(null);
