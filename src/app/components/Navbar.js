@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
@@ -45,6 +45,19 @@ export default function Navbar() {
   const navigate = (path) => {
     router.push(path);
   };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+
+    // Limpeza ao desmontar
+    return () => {
+      document.body.classList.remove("no-scroll");
+    };
+  }, [isMenuOpen]); // Depende do estado de isMenuOpen
 
   return (
     <>
